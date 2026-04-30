@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Temporary/generated diagnostics
+tmp/
+
+# Dependencies / local env
+node_modules/
+.env
+.env.*
+
+# Logs
+*.log

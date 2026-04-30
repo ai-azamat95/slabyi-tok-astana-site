@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Слабый ток - видеонаблюдение под ключ</title>
+    <meta
+      name="description"
+      content="Видеонаблюдение под ключ в Астане: оборудование HiWatch, Hikvision, бюджетные китайские решения, монтаж, настройка и гарантия."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Слабый ток">
+        <span class="brand-camera" aria-hidden="true">
+          <span></span>
+        </span>
+        <span class="brand-copy">
+          <span class="brand-title"><b>Слабый</b> ток</span>
+          <span>Видеонаблюдение и слаботочные системы в Астане</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Главное меню">
+        <a href="#about">О компании</a>
+        <a href="#catalog">Каталог оборудования</a>
+        <a href="#services">Услуги</a>
+        <a href="#works">Наши работы</a>
+        <a href="#prices">Цены</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-contact">
+        <a href="tel:+77001112525">+7 700 111 25 25</a>
+        <span>Ежедневно 9:00 - 20:00</span>
+      </div>
+
+      <button class="btn primary header-cta" type="button" data-open-modal>Заказать звонок</button>
+    </header>
+
+    <main>
+      <section class="hero" id="about" aria-labelledby="hero-title">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <div class="hero-copy">
+            <h1 id="hero-title">Видеонаблюдение под ключ в Астане</h1>
+            <p class="hero-lead">Оборудование + монтаж + настройка за 1-2 дня</p>
+            <div class="brand-line">HiWatch <span></span> Hikvision <span></span> Китай</div>
+
+            <div class="hero-badges" aria-label="Преимущества">
+              <div>
+                <span class="badge-icon icon-camera" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" role="img">
+                    <rect x="8" y="20" width="32" height="22" rx="5"></rect>
+                    <path d="M40 25l14-7v28l-14-7z"></path>
+                    <circle cx="24" cy="31" r="7"></circle>
+                    <path d="M16 48h30"></path>
+                  </svg>
+                </span>
+                <strong>Видеонаблюдение<br />под ключ</strong>
+              </div>
+              <div>
+                <span class="badge-icon icon-van" aria-hidden="true">
+                  <svg viewBox="0 0 72 64" role="img">
+                    <path d="M7 25h36v22H7z"></path>
+                    <path d="M43 31h12l9 9v7H43z"></path>
+                    <circle cx="20" cy="49" r="5"></circle>
+                    <circle cx="53" cy="49" r="5"></circle>
+                    <path d="M14 31h18"></path>
+                    <text x="17" y="42">СТ</text>
+                  </svg>
+                </span>
+                <strong>B2B поставки</strong>
+              </div>
+              <div>
+                <span class="badge-icon icon-shield" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" role="img">
+                    <path d="M32 6l22 8v15c0 14-8.8 24.4-22 29C18.8 53.4 10 43 10 29V14z"></path>
+                    <path d="M22 31l7 7 14-17"></path>
+                  </svg>
+                </span>
+                <strong>Гарантия<br />до 3 лет</strong>
+              </div>
+              <div>
+                <span class="badge-icon icon-baiterek" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" role="img">
+                    <circle cx="32" cy="13" r="8"></circle>
+                    <path d="M32 21v34"></path>
+                    <path d="M24 55h16"></path>
+                    <path d="M20 33h24"></path>
+                    <path d="M24 21l-8 34"></path>
+                    <path d="M40 21l8 34"></path>
+                  </svg>
+                </span>
+                <strong>Работаем<br />по Астане</strong>
+              </div>
+            </div>
+
+            <ul class="hero-list">
+              <li>Бесплатный выезд и подбор решения</li>
+              <li>Прозрачная смета на оборудование и монтаж</li>
+              <li>Официальная гарантия и поддержка</li>
+            </ul>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#prices">Рассчитать стоимость</a>
+              <button class="btn outline-light" type="button" data-open-modal>Получить смету</button>
+            </div>
+          </div>
+
+          <form class="calculator hero-calculator" id="prices" aria-label="Калькулятор стоимости">
+            <div class="calc-head">
+              <h2>Калькулятор стоимости</h2>
+            </div>
+
+            <label>
+              Бренд
+              <select id="brand">
+                <option value="hiwatch">HiWatch</option>
+                <option value="hikvision">Hikvision</option>
+                <option value="china">Китай</option>
+              </select>
+            </label>
+
+            <div class="number-row">
+              <span>Камер</span>
+              <div class="stepper">
+                <button type="button" data-step="-1" aria-label="Уменьшить количество камер">-</button>
+                <input id="cameras" type="number" min="1" max="64" value="4" />
+                <button type="button" data-step="1" aria-label="Увеличить количество камер">+</button>
+              </div>
+            </div>
+
+            <fieldset>
+              <legend>Объект</legend>
+              <div class="segments">
+                <label><input type="radio" name="object" value="flat" checked />Квартира</label>
+                <label><input type="radio" name="object" value="house" />Дом</label>
+                <label><input type="radio" name="object" value="business" />Бизнес</label>
+              </div>
+            </fieldset>
+
+            <label>
+              Монтаж
+              <select id="installMode">
+                <option value="standard">Стандартный</option>
+                <option value="clean">Скрытая прокладка</option>
+                <option value="none">Без монтажа</option>
+              </select>
+            </label>
+
+            <label>
+              Регистратор + диск
+              <select id="storage">
+                <option value="1tb">1 ТБ</option>
+                <option value="2tb" selected>2 ТБ</option>
+                <option value="4tb">4 ТБ</option>
+              </select>
+            </label>
+
+            <div class="total-box">
+              <span>Итого от <strong id="calcTotal">185 000 ₸</strong></span>
+              <small>Оборудование и стандартный монтаж</small>
+            </div>
+
+            <button class="btn primary full" type="button" data-open-modal>Получить смету</button>
+            <p class="calc-note">Точная стоимость после выезда специалиста</p>
+          </form>
+        </div>
+      </section>
+
+      <section class="object-cards" aria-label="Типы объектов">
+        <article class="object-card" data-object-card="flat">
+          <div class="object-copy">
+            <span class="object-icon">▥</span>
+            <h2>Квартира</h2>
+            <p>Оптимальные комплекты для квартир и небольших помещений</p>
+            <ul>
+              <li>2-4 камеры</li>
+              <li>Онлайн просмотр со смартфона</li>
+              <li>Монтаж за 1 день</li>
+            </ul>
+          </div>
+          <img src="./assets/barlau/9997-hiwatch-ds-i852m-2-8mm-ip-камера-купольная.jpeg" alt="Купольная камера для квартиры" />
+        </article>
+
+        <article class="object-card" data-object-card="house">
+          <div class="object-copy">
+            <span class="object-icon">⌂</span>
+            <h2>Дом</h2>
+            <p>Комплексные решения для частных домов и коттеджей</p>
+            <ul>
+              <li>4-8 камер</li>
+              <li>Уличные и внутренние камеры</li>
+              <li>Удаленный доступ 24/7</li>
+            </ul>
+          </div>
+          <img src="./assets/hero-installation.png" alt="Монтаж камеры в частном доме" />
+        </article>
+
+        <article class="object-card" data-object-card="business">
+          <div class="object-copy">
+            <span class="object-icon">▦</span>
+            <h2>Бизнес</h2>
+            <p>Надежные системы для бизнеса и коммерческих объектов</p>
+            <ul>
+              <li>8+ камер</li>
+              <li>Высокое разрешение</li>
+              <li>Архив и аналитика</li>
+            </ul>
+          </div>
+          <img src="./assets/cctv-products.png" alt="Оборудование для видеонаблюдения бизнеса" />
+        </article>
+      </section>
+
+      <section class="section catalog-section" id="catalog">
+        <div class="section-head split">
+          <div>
+            <h2>Каталог оборудования</h2>
+            <p>HiWatch, Hikvision, регистраторы, диски и аксессуары. Подбираем комплект под объект и бюджет.</p>
+          </div>
+          <a href="#contacts">Смотреть весь каталог →</a>
+        </div>
+
+        <div class="category-grid">
+          <article>
+            <img src="./assets/barlau/11108-hiwatch-ipc-b040-b-2-8mm-ip-камера-цилиндрическая.jpeg" alt="HiWatch камера" />
+            <h3>HiWatch</h3>
+            <p>IP и аналоговые</p>
+          </article>
+          <article>
+            <img src="./assets/barlau/9996-hiwatch-ds-i853m-2-8mm-ip-камера-купольная.jpeg" alt="Hikvision камера" />
+            <h3>Hikvision</h3>
+            <p>Камеры IP и аналоговые</p>
+          </article>
+          <article>
+            <img src="./assets/cctv-products.png" alt="Камеры без бренда" />
+            <h3>Камеры без бренда</h3>
+            <p>Доступные решения</p>
+          </article>
+          <article>
+            <img src="./assets/barlau/11129-hiwatch-ds-h216qa-c-tvi-видеорегистратор.jpeg" alt="Видеорегистратор" />
+            <h3>Регистраторы</h3>
+            <p>NVR / DVR</p>
+          </article>
+          <article>
+            <img src="./assets/cctv-products.png" alt="Жесткий диск" />
+            <h3>Жесткие диски</h3>
+            <p>Для видеонаблюдения</p>
+          </article>
+          <article>
+            <img src="./assets/cctv-products.png" alt="Аксессуары" />
+            <h3>Аксессуары</h3>
+            <p>Блоки питания, кабель</p>
+          </article>
+        </div>
+        <div class="barlau-grid" id="barlauGrid" aria-label="Товары Barlau"></div>
+      </section>
+
+      <section class="section service-strip" id="services">
+        <div class="turnkey-card">
+          <div>
+            <h2>Монтаж под ключ</h2>
+            <ul>
+              <li>Выезд и обследование объекта</li>
+              <li>Подбор оборудования</li>
+              <li>Монтаж и настройка</li>
+              <li>Тестирование и ввод в эксплуатацию</li>
+              <li>Гарантийное и постгарантийное обслуживание</li>
+            </ul>
+          </div>
+          <img src="./assets/hero-installation.png" alt="Монтаж видеонаблюдения под ключ" />
+        </div>
+      </section>
+
+      <section class="partner-band" id="works" aria-label="Barlau">
+        <div>
+          <span>Поставки оборудования</span>
+          <strong>B2B</strong>
+        </div>
+        <p>Оборудование напрямую от поставщика</p>
+        <p>Выгодные условия для партнеров и дилеров</p>
+        <p>Техническая поддержка и обучение</p>
+        <button class="btn secondary" type="button" data-open-modal>Стать клиентом</button>
+      </section>
+    </main>
+
+    <footer class="site-footer" id="contacts">
+      <div>
+        <strong>Слабый ток</strong>
+        <span>Видеонаблюдение, оборудование и монтаж под ключ в Астане</span>
+      </div>
+      <div class="footer-actions">
+        <a class="btn secondary" href="tel:+77001112525">+7 700 111 25 25</a>
+        <button class="btn primary" type="button" data-open-modal>Оставить заявку</button>
+      </div>
+    </footer>
+
+    <dialog class="lead-modal" id="leadModal">
+      <form method="dialog" class="lead-form">
+        <button class="modal-close" value="cancel" aria-label="Закрыть">×</button>
+        <span class="section-kicker">Заявка</span>
+        <h2>Получить смету</h2>
+        <p id="modalSummary">Заполните контакты, расчет подтянется из калькулятора.</p>
+        <label>
+          Имя
+          <input type="text" placeholder="Ваше имя" />
+        </label>
+        <label>
+          Телефон
+          <input type="tel" placeholder="+7 ___ ___ __ __" />
+        </label>
+        <label>
+          Комментарий
+          <textarea rows="3" placeholder="Адрес, объект, пожелания"></textarea>
+        </label>
+        <button class="btn primary full" value="default">Отправить заявку</button>
+      </form>
+    </dialog>
+
+    <script src="./barlau-products.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
