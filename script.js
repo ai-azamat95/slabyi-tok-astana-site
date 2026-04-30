@@ -66,6 +66,8 @@ let activeShopGroup = "all";
 let cart = loadCart();
 let installedCameraCount = 1736;
 const requestEmail = "manus@acahydraulic.kz";
+const requestPhone = "8 707 560 44 53";
+const whatsappUrl = "https://wa.me/77075604453";
 
 function money(value) {
   return formatter.format(value).replace(/\s?KZT/, "₸");
@@ -172,6 +174,8 @@ function updateRequestLink() {
     `Итого: ${money(lastTotal)}`,
     "",
     "Город: Астана",
+    `Телефон: ${requestPhone}`,
+    `WhatsApp: ${whatsappUrl}`,
   ];
 
   calcRequestLink.href = `mailto:${requestEmail}?subject=${encodeURIComponent(
@@ -302,6 +306,8 @@ function updateCartLink(items, total) {
     `Итого: ${money(total)}`,
     "",
     "Город: Астана",
+    `Телефон: ${requestPhone}`,
+    `WhatsApp: ${whatsappUrl}`,
   ];
 
   cartCheckout.href = `mailto:${requestEmail}?subject=${encodeURIComponent(
@@ -325,6 +331,9 @@ function submitLeadForm(event) {
     ...lastEstimate.map((item) => `${item.title}: ${money(item.price)}`),
     "",
     `Итого: ${money(lastTotal)}`,
+    "",
+    `Телефон: ${requestPhone}`,
+    `WhatsApp: ${whatsappUrl}`,
   ];
 
   window.location.href = `mailto:${requestEmail}?subject=${encodeURIComponent(
