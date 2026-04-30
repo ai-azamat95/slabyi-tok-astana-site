@@ -37,7 +37,7 @@
       </nav>
 
       <div class="header-contact">
-        <a href="tel:+77001112525">+7 700 111 25 25</a>
+        <a href="tel:+77471514231">8 747 151 42 31</a>
         <span>Ежедневно 9:00 - 20:00</span>
       </div>
 
@@ -52,6 +52,14 @@
             <h1 id="hero-title">Видеонаблюдение под ключ в Астане</h1>
             <p class="hero-lead">Оборудование + монтаж + настройка за 1-2 дня</p>
             <div class="brand-line">HiWatch <span></span> Hikvision <span></span> Китай</div>
+
+            <div class="live-counter" aria-label="Установленные камеры">
+              <span class="live-dot" aria-hidden="true"></span>
+              <div>
+                <strong><span id="installedCounter">1 736</span> камер видеонаблюдения установили</strong>
+                <small>монтажи идут прямо сейчас по Астане</small>
+              </div>
+            </div>
 
             <div class="hero-badges" aria-label="Преимущества">
               <div>
@@ -119,57 +127,56 @@
               <h2>Калькулятор стоимости</h2>
             </div>
 
-            <label>
-              Бренд
-              <select id="brand">
-                <option value="hiwatch">HiWatch</option>
-                <option value="hikvision">Hikvision</option>
-                <option value="china">Китай</option>
-              </select>
-            </label>
-
-            <div class="number-row">
-              <span>Камер</span>
-              <div class="stepper">
-                <button type="button" data-step="-1" aria-label="Уменьшить количество камер">-</button>
-                <input id="cameras" type="number" min="1" max="64" value="4" />
-                <button type="button" data-step="1" aria-label="Увеличить количество камер">+</button>
-              </div>
-            </div>
-
             <fieldset>
-              <legend>Объект</legend>
+              <legend>Тип системы</legend>
               <div class="segments">
-                <label><input type="radio" name="object" value="flat" checked />Квартира</label>
-                <label><input type="radio" name="object" value="house" />Дом</label>
-                <label><input type="radio" name="object" value="business" />Бизнес</label>
+                <label><input type="radio" name="systemType" value="wifi" />Wi-Fi камера</label>
+                <label><input type="radio" name="systemType" value="ip" checked />Система IP-камер</label>
               </div>
             </fieldset>
 
-            <label>
-              Монтаж
-              <select id="installMode">
-                <option value="standard">Стандартный</option>
-                <option value="clean">Скрытая прокладка</option>
-                <option value="none">Без монтажа</option>
-              </select>
-            </label>
+            <fieldset class="calc-branch" data-branch="wifi" hidden>
+              <legend>Камера</legend>
+              <div class="segments">
+                <label><input type="radio" name="wifiType" value="outdoor" checked />Уличная</label>
+                <label><input type="radio" name="wifiType" value="indoor" />Внутренняя</label>
+              </div>
+            </fieldset>
 
-            <label>
-              Регистратор + диск
-              <select id="storage">
-                <option value="1tb">1 ТБ</option>
-                <option value="2tb" selected>2 ТБ</option>
-                <option value="4tb">4 ТБ</option>
-              </select>
-            </label>
+            <div class="calc-branch" data-branch="ip">
+              <div class="range-row">
+                <div>
+                  <span>Количество камер</span>
+                  <strong><span id="cameraCountLabel">4</span> шт.</strong>
+                </div>
+                <input id="cameras" type="range" min="1" max="32" value="4" />
+              </div>
 
-            <div class="total-box">
-              <span>Итого от <strong id="calcTotal">185 000 ₸</strong></span>
-              <small>Оборудование и стандартный монтаж</small>
+              <fieldset>
+                <legend>Жесткий диск и архив</legend>
+                <div class="hdd-grid" id="hddOptions">
+                  <label><input type="radio" name="hdd" value="500gb" />500 ГБ <span data-hdd-days="500gb"></span></label>
+                  <label><input type="radio" name="hdd" value="1tb" checked />1 ТБ <span data-hdd-days="1tb"></span></label>
+                  <label><input type="radio" name="hdd" value="2tb" />2 ТБ <span data-hdd-days="2tb"></span></label>
+                  <label><input type="radio" name="hdd" value="4tb" />4 ТБ <span data-hdd-days="4tb"></span></label>
+                  <label><input type="radio" name="hdd" value="6tb" />6 ТБ <span data-hdd-days="6tb"></span></label>
+                  <label><input type="radio" name="hdd" value="8tb" />8 ТБ <span data-hdd-days="8tb"></span></label>
+                </div>
+              </fieldset>
+
+              <div class="toggle-grid">
+                <label><input type="checkbox" id="monitorOption" />Монитор <span>42 000 ₸</span></label>
+                <label><input type="checkbox" id="boxOption" />Металлический ящик 6U <span>35 500 ₸</span></label>
+              </div>
             </div>
 
-            <button class="btn primary full" type="button" data-open-modal>Получить смету</button>
+            <div class="total-box">
+              <div class="estimate-list" id="estimateList" aria-live="polite"></div>
+              <span>ИТОГО <strong id="calcTotal">0 ₸</strong></span>
+              <small>Смета считается автоматически по выбранной конфигурации</small>
+            </div>
+
+            <a class="btn primary full" id="calcRequestLink" href="mailto:manus@acahydraulic.kz?subject=Заявка%20на%20видеонаблюдение">Оставить заявку</a>
             <p class="calc-note">Точная стоимость после выезда специалиста</p>
           </form>
         </div>
@@ -187,7 +194,7 @@
               <li>Монтаж за 1 день</li>
             </ul>
           </div>
-          <img src="./assets/barlau/9997-hiwatch-ds-i852m-2-8mm-ip-камера-купольная.jpeg" alt="Купольная камера для квартиры" />
+          <img src="./assets/apartment-camera-plan.png" alt="Схема квартиры с камерами видеонаблюдения по углам" />
         </article>
 
         <article class="object-card" data-object-card="house">
@@ -201,7 +208,7 @@
               <li>Удаленный доступ 24/7</li>
             </ul>
           </div>
-          <img src="./assets/hero-installation.png" alt="Монтаж камеры в частном доме" />
+          <img src="./assets/house-camera-plan.png" alt="Схема дома с гаражом и зонами охвата камер" />
         </article>
 
         <article class="object-card" data-object-card="business">
@@ -215,17 +222,17 @@
               <li>Архив и аналитика</li>
             </ul>
           </div>
-          <img src="./assets/cctv-products.png" alt="Оборудование для видеонаблюдения бизнеса" />
+          <img src="./assets/business-global-coverage.png" alt="Глобальная схема видеонаблюдения для бизнеса" />
         </article>
       </section>
 
       <section class="section catalog-section" id="catalog">
         <div class="section-head split">
           <div>
-            <h2>Каталог оборудования</h2>
-            <p>HiWatch, Hikvision, регистраторы, диски и аксессуары. Подбираем комплект под объект и бюджет.</p>
+            <h2>Магазин оборудования</h2>
+            <p>Камеры, регистраторы, PoE-коммутаторы и диски с актуальными карточками Barlau. Добавляйте позиции в корзину и отправляйте заявку.</p>
           </div>
-          <a href="#contacts">Смотреть весь каталог →</a>
+          <button class="btn secondary" type="button" data-cart-open>Корзина <span id="cartCountInline">0</span></button>
         </div>
 
         <div class="category-grid">
@@ -260,6 +267,13 @@
             <p>Блоки питания, кабель</p>
           </article>
         </div>
+        <div class="shop-toolbar">
+          <div class="shop-tabs" id="shopTabs" aria-label="Категории магазина"></div>
+          <button class="cart-open-btn" type="button" data-cart-open>
+            <span>Корзина</span>
+            <strong id="cartCount">0</strong>
+          </button>
+        </div>
         <div class="barlau-grid" id="barlauGrid" aria-label="Товары Barlau"></div>
       </section>
 
@@ -279,15 +293,71 @@
         </div>
       </section>
 
-      <section class="partner-band" id="works" aria-label="Barlau">
-        <div>
-          <span>Поставки оборудования</span>
-          <strong>B2B</strong>
+      <section class="section works-section" id="works">
+        <div class="section-head split">
+          <div>
+            <span class="section-kicker">Наши работы</span>
+            <h2>Реальные объекты и монтаж</h2>
+            <p>Отобранные кадры с ваших объектов: монтаж, настройка регистратора, поставка и подготовка камер.</p>
+          </div>
+          <button class="btn secondary" type="button" data-open-modal>Обсудить похожий объект</button>
         </div>
-        <p>Оборудование напрямую от поставщика</p>
-        <p>Выгодные условия для партнеров и дилеров</p>
-        <p>Техническая поддержка и обучение</p>
-        <button class="btn secondary" type="button" data-open-modal>Стать клиентом</button>
+
+        <div class="works-grid">
+          <article class="work-card work-card-large">
+            <img src="./assets/works/camera-selection.jpg" alt="Выбор камер HiWatch для системы видеонаблюдения" />
+            <div class="work-card-body">
+              <span class="work-meta">Подбор оборудования</span>
+              <h3>Выбор камер</h3>
+              <p>Подбираем тип камеры под задачу: уличную, внутреннюю, купольную или цилиндрическую.</p>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img src="./assets/works/nvr-setup.jpg" alt="Настройка регистратора видеонаблюдения" />
+            <div class="work-card-body">
+              <span class="work-meta">Пусконаладка</span>
+              <h3>Настройка регистратора</h3>
+              <p>Подключение камер, проверка сети и архива.</p>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img src="./assets/works/server-after-install.jpg" alt="Серверный шкаф после установки и подключения" />
+            <div class="work-card-body">
+              <span class="work-meta">Готовый узел</span>
+              <h3>Сервер после установки</h3>
+              <p>Оборудование подключено, запущено и готово к работе.</p>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img src="./assets/works/equipment-delivery.jpg" alt="Поставка оборудования для видеонаблюдения" />
+            <div class="work-card-body">
+              <span class="work-meta">Комплектация</span>
+              <h3>Поставка оборудования</h3>
+              <p>Подбираем комплект под объект перед монтажом.</p>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img src="./assets/works/camera-prep.jpg" alt="Подготовка камеры HiWatch к монтажу" />
+            <div class="work-card-body">
+              <span class="work-meta">Подготовка</span>
+              <h3>Проверка камер</h3>
+              <p>Осматриваем корпус, крепления и комплектацию.</p>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img src="./assets/works/low-voltage-server.jpg" alt="Монтаж слаботочной системы и подключение серверного оборудования" />
+            <div class="work-card-body">
+              <span class="work-meta">Слаботочная система</span>
+              <h3>Установка сервера и подключение</h3>
+              <p>Подключение серверного оборудования после прокладки кабеля и подготовки трасс.</p>
+            </div>
+          </article>
+        </div>
       </section>
     </main>
 
@@ -297,30 +367,46 @@
         <span>Видеонаблюдение, оборудование и монтаж под ключ в Астане</span>
       </div>
       <div class="footer-actions">
-        <a class="btn secondary" href="tel:+77001112525">+7 700 111 25 25</a>
+        <a class="btn secondary" href="tel:+77471514231">8 747 151 42 31</a>
         <button class="btn primary" type="button" data-open-modal>Оставить заявку</button>
       </div>
     </footer>
 
     <dialog class="lead-modal" id="leadModal">
-      <form method="dialog" class="lead-form">
-        <button class="modal-close" value="cancel" aria-label="Закрыть">×</button>
+      <form class="lead-form" id="leadForm" action="mailto:manus@acahydraulic.kz" method="post" enctype="text/plain">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
         <span class="section-kicker">Заявка</span>
         <h2>Получить смету</h2>
         <p id="modalSummary">Заполните контакты, расчет подтянется из калькулятора.</p>
         <label>
           Имя
-          <input type="text" placeholder="Ваше имя" />
+          <input id="leadName" name="Имя" type="text" placeholder="Ваше имя" />
         </label>
         <label>
           Телефон
-          <input type="tel" placeholder="+7 ___ ___ __ __" />
+          <input id="leadPhone" name="Телефон" type="tel" placeholder="8 ___ ___ __ __" />
         </label>
         <label>
           Комментарий
-          <textarea rows="3" placeholder="Адрес, объект, пожелания"></textarea>
+          <textarea id="leadComment" name="Комментарий" rows="3" placeholder="Адрес, объект, пожелания"></textarea>
         </label>
         <button class="btn primary full" value="default">Отправить заявку</button>
+      </form>
+    </dialog>
+
+    <dialog class="cart-modal" id="cartModal">
+      <form method="dialog" class="cart-panel">
+        <button class="modal-close" value="cancel" aria-label="Закрыть">×</button>
+        <span class="section-kicker">Корзина</span>
+        <h2>Ваш заказ</h2>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-empty" id="cartEmpty">Корзина пока пустая</div>
+        <div class="cart-total">
+          <span>Итого</span>
+          <strong id="cartTotal">0 ₸</strong>
+        </div>
+        <a class="btn primary full" id="cartCheckout" href="mailto:manus@acahydraulic.kz?subject=Заявка%20на%20оборудование">Оставить заявку</a>
+        <button class="btn secondary full" type="button" disabled>Оплата онлайн скоро</button>
       </form>
     </dialog>
 

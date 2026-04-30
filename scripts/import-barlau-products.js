@@ -5,10 +5,37 @@ const BASE = "https://barlau.kz";
 const OUT_DIR = path.resolve("assets/barlau");
 const OUT_DATA = path.resolve("barlau-products.js");
 
-const categories = [
-  "/catalog/ip_videonablyudenie_hiwatch/",
-  "/catalog/tvi_videonablyudenie_hiwatch/",
-  "/catalog/videonablyudenie_hikvision/",
+const categoryGroups = [
+  {
+    key: "hiwatch-ip",
+    title: "IP камеры HiWatch",
+    url: "/catalog/ip_videonablyudenie_hiwatch/",
+  },
+  {
+    key: "hikvision-ip",
+    title: "IP камеры Hikvision",
+    url: "/catalog/videonablyudenie_hikvision/",
+  },
+  {
+    key: "wifi",
+    title: "Wi-Fi камеры",
+    url: "/catalog/wifi_videonablyudenie/",
+  },
+  {
+    key: "recorders",
+    title: "Регистраторы",
+    url: "/catalog/ip_zapisyvayushchie_ustroystva/",
+  },
+  {
+    key: "poe",
+    title: "PoE коммутаторы",
+    url: "/catalog/poe_kommutatory/",
+  },
+  {
+    key: "storage",
+    title: "Жесткие диски",
+    url: "/catalog/nositeli_informatsii/",
+  },
 ];
 
 const formatter = new Intl.NumberFormat("ru-KZ", {
@@ -121,14 +148,21 @@ async function main() {
   await fs.mkdir(OUT_DIR, { recursive: true });
 
   const products = [];
-  for (const category of categories) {
-    const response = await fetch(absoluteUrl(category));
-    if (!response.ok) throw new Error(`Category ${response.status}: ${category}`);
+  for (const group of categoryGroups) {
+    const response = await fetch(absoluteUrl(group.url));
+    if (!response.ok) throw new Error(`Category ${response.status}: ${group.url}`);
     const html = await response.text();
-    products.push(...parseProducts(html, category));
+    const groupProducts = parseProducts(html, group.url)
+      .slice(0, 5)
+      .map((product) => ({
+        ...product,
+        groupKey: group.key,
+        groupTitle: group.title,
+      }));
+    products.push(...groupProducts);
   }
 
-  const unique = [...new Map(products.map((product) => [product.id, product])).values()].slice(0, 36);
+  const unique = [...new Map(products.map((product) => [product.id, product])).values()];
 
   for (const product of unique) {
     product.image = await downloadImage(product);
