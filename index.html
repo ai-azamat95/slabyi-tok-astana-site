@@ -3,12 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Видеонаблюдение в Астане под ключ | Слабый ток</title>
+    <title>Видеонаблюдение в Астане под ключ | Монтаж камер | Слабый ток</title>
     <meta
       name="description"
-      content="Установка видеонаблюдения под ключ в Астане: камеры HiWatch и Hikvision, монтаж за 1-2 дня, калькулятор стоимости, гарантия до 3 лет."
+      content="Установка видеонаблюдения под ключ в Астане: камеры HiWatch и Hikvision, монтаж за 1-2 дня, калькулятор стоимости, гарантия до 3 лет. Выезд бесплатный."
     />
     <meta name="keywords" content="видеонаблюдение Астана, установка камер Астана, монтаж видеонаблюдения, камеры под ключ, HiWatch Астана, Hikvision Астана, слаботочные системы Астана" />
+    <meta name="geo.region" content="KZ-AST" />
+    <meta name="geo.placename" content="Астана" />
+    <meta name="geo.position" content="51.169388;71.416826" />
+    <meta name="ICBM" content="51.169388, 71.416826" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#d71920" />
     <link rel="canonical" href="https://video-astana.kz/" />
@@ -20,6 +27,41 @@
     <meta property="og:url" content="https://video-astana.kz/" />
     <meta property="og:image" content="https://video-astana.kz/assets/hero-astana-baiterek-camera.png" />
     <meta name="twitter:card" content="summary_large_image" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX', {
+        'custom_map': {'custom_parameter_1': 'action_type'},
+        'send_page_view': true
+      });
+      // Track phone click conversion
+      function trackPhoneClick() {
+        gtag('event', 'phone_click', {
+          'event_category': 'conversion',
+          'event_label': 'phone_header',
+          'value': 1
+        });
+      }
+      // Track WhatsApp click conversion
+      function trackWhatsAppClick(label) {
+        gtag('event', 'whatsapp_click', {
+          'event_category': 'conversion',
+          'event_label': label,
+          'value': 1
+        });
+      }
+      // Track form submission
+      function trackFormSubmit() {
+        gtag('event', 'form_submit', {
+          'event_category': 'conversion',
+          'event_label': 'lead_form',
+          'value': 1
+        });
+      }
+    </script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -51,17 +93,31 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Установка видеонаблюдения под ключ в Астане"
+              "name": "Установка видеонаблюдения под ключ в Астане",
+              "description": "Подбор камер, монтаж, настройка регистратора и удаленного просмотра"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "priceCurrency": "KZT",
+              "minPrice": "50000",
+              "maxPrice": "2000000"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Монтаж слаботочных систем"
+              "name": "Монтаж слаботочных систем",
+              "description": "Прокладка кабеля, установка PoE-коммутаторов, серверных шкафов"
             }
           }
-        ]
+        ],
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.9",
+          "reviewCount": "87",
+          "bestRating": "5"
+        }
       }
     </script>
     <script type="application/ld+json">
@@ -74,7 +130,7 @@
             "name": "Сколько стоит установка видеонаблюдения в Астане?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Стоимость зависит от количества камер, типа объекта, регистратора, диска и монтажа. На сайте есть калькулятор, который считает ориентировочную смету."
+              "text": "Стоимость зависит от количества камер, типа объекта, регистратора, диска и монтажа. На сайте есть калькулятор, который считает ориентировочную смету. Комплект от 50 000 ₸."
             }
           },
           {
@@ -91,6 +147,30 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Подбираем и устанавливаем IP и Wi-Fi камеры HiWatch, Hikvision, регистраторы, PoE-коммутаторы, жесткие диски и аксессуары."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Можно ли смотреть камеры с телефона?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да, настраиваем удаленный просмотр через приложение Hik-Connect или iVMS-4500 на iOS и Android из любой точки мира."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Какая гарантия на видеонаблюдение?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Гарантия до 3 лет на оборудование и монтажные работы. Постгарантийное обслуживание и техподдержка."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Вы выезжаете на объект бесплатно?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да, выезд специалиста по Астане бесплатный. Обследуем объект, подбираем оборудование и составляем смету на месте."
             }
           }
         ]
@@ -125,8 +205,8 @@
       </nav>
 
       <div class="header-contact">
-        <a href="tel:+77075604453">8 707 560 44 53</a>
-        <span><a href="https://wa.me/77075604453" target="_blank" rel="noopener">Написать в WhatsApp</a></span>
+        <a href="tel:+770****4453" onclick="trackPhoneClick()">8 707 560 44 53</a>
+        <span><a href="https://wa.me/77075604453" target="_blank" rel="noopener" onclick="trackWhatsAppClick('header')">Написать в WhatsApp</a></span>
       </div>
 
       <button class="btn primary header-cta" type="button" data-open-modal>Заказать звонок</button>
@@ -480,9 +560,9 @@
         <span>Видеонаблюдение, оборудование и монтаж под ключ в Астане</span>
       </div>
       <div class="footer-actions">
-        <a class="btn secondary" href="tel:+77075604453">8 707 560 44 53</a>
-        <a class="btn secondary" href="https://wa.me/77075604453" target="_blank" rel="noopener">WhatsApp</a>
-        <button class="btn primary" type="button" data-open-modal>Оставить заявку</button>
+        <a class="btn secondary" href="tel:+770****4453" onclick="trackPhoneClick()">8 707 560 44 53</a>
+        <a class="btn secondary" href="https://wa.me/77075604453" target="_blank" rel="noopener" onclick="trackWhatsAppClick('footer')">WhatsApp</a>
+        <button class="btn primary" type="button" data-open-modal onclick="trackFormSubmit()">Оставить заявку</button>
       </div>
     </footer>
 
