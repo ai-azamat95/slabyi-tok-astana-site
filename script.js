@@ -498,3 +498,26 @@ renderBarlauProducts();
 renderCart();
 calculate();
 startInstalledCounter();
+
+// Консультант — показывать только когда прокрутил до конца страницы
+(function initConsultantVisibility() {
+  const widget = document.querySelector('.consultant-widget');
+  if (!widget) return;
+
+  let shown = false;
+
+  function showIfNearBottom() {
+    if (shown) return;
+    const scrollBottom = window.innerHeight + window.scrollY;
+    const docHeight = document.documentElement.scrollHeight;
+    // Показываем когда до конца осталось < 40% страницы
+    if (scrollBottom >= docHeight * 0.6) {
+      widget.classList.add('visible');
+      shown = true;
+    }
+  }
+
+  window.addEventListener('scroll', showIfNearBottom, { passive: true });
+  // Проверяем сразу на случай если страница уже прокручена
+  showIfNearBottom();
+})();
