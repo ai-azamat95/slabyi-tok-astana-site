@@ -1218,6 +1218,34 @@ input[type="range"] {
   font-size: 30px;
 }
 
+.seo-section {
+  background: #fff;
+}
+
+.seo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.seo-grid article {
+  padding: 22px;
+  background: #f5f7fa;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.seo-grid h3 {
+  margin: 0 0 10px;
+  font-size: 21px;
+}
+
+.seo-grid p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
 .consultant-widget {
   position: fixed;
   right: 18px;
@@ -1556,6 +1584,7 @@ input[type="range"] {
   .object-cards,
   .category-grid,
   .barlau-grid,
+  .seo-grid,
   .turnkey-card,
   .works-grid {
     grid-template-columns: 1fr;
