@@ -273,7 +273,7 @@ function renderBarlauProducts() {
           <p>${product.groupTitle || "Оборудование"}${product.stock ? ` · в наличии: ${product.stock} шт.` : ""}</p>
           <strong>${product.priceText}</strong>
           <footer>
-            <span>Цена Barlau</span>
+            <span></span>
             <button class="btn secondary" type="button" data-add-cart="${product.id}">В корзину</button>
           </footer>
         </article>
