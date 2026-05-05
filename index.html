@@ -27,18 +27,29 @@
     <meta property="og:url" content="https://video-astana.kz/" />
     <meta property="og:image" content="https://video-astana.kz/assets/hero-astana-baiterek-camera.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) - GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <!-- Google Ads conversion tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17847190636"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+      // GA4 config (replace G-XXXXXXXXXX with real ID when available)
       gtag('config', 'G-XXXXXXXXXX', {
         'custom_map': {'custom_parameter_1': 'action_type'},
         'send_page_view': true
       });
+      // Google Ads config
+      gtag('config', 'AW-17847190636');
+
       // Track phone click conversion
       function trackPhoneClick() {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17847190636/NtyUCITB8KccEOyImr5C',
+          'value': 50000.0,
+          'currency': 'KZT'
+        });
         gtag('event', 'phone_click', {
           'event_category': 'conversion',
           'event_label': 'phone_header',
@@ -47,6 +58,11 @@
       }
       // Track WhatsApp click conversion
       function trackWhatsAppClick(label) {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17847190636/NtyUCITB8KccEOyImr5C',
+          'value': 50000.0,
+          'currency': 'KZT'
+        });
         gtag('event', 'whatsapp_click', {
           'event_category': 'conversion',
           'event_label': label,
@@ -55,6 +71,11 @@
       }
       // Track form submission
       function trackFormSubmit() {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17847190636/NtyUCITB8KccEOyImr5C',
+          'value': 50000.0,
+          'currency': 'KZT'
+        });
         gtag('event', 'form_submit', {
           'event_category': 'conversion',
           'event_label': 'lead_form',
