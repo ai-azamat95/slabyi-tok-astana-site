@@ -27,50 +27,52 @@
     <meta property="og:url" content="https://video-astana.kz/" />
     <meta property="og:image" content="https://video-astana.kz/assets/hero-astana-baiterek-camera.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <!-- Google tag (gtag.js) - GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <!-- Google Ads conversion tag -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17847190636"></script>
+    <!-- Google tag: GA4 Video Astana + Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3GWXHQM8JP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      // GA4 config (replace G-XXXXXXXXXX with real ID when available)
-      gtag('config', 'G-XXXXXXXXXX', {
-        'custom_map': {'custom_parameter_1': 'action_type'},
-        'send_page_view': true
+      gtag('config', 'G-3GWXHQM8JP', {
+        'send_page_view': true,
+        'groups': 'video_astana'
       });
-      // Google Ads config
-      gtag('config', 'AW-17847190636');
+      gtag('config', 'AW-17847190636', {
+        'groups': 'video_astana_ads'
+      });
 
       // Track phone click conversion
-      function trackPhoneClick() {
+      function trackPhoneClick(label = 'phone_click') {
         gtag('event', 'conversion', {
-          'send_to': 'AW-17847190636/NtyUCITB8KccEOyImr5C',
+          'send_to': 'AW-17847190636/ATzxCLr8iagcEOyImr5C',
           'value': 50000.0,
           'currency': 'KZT'
         });
         gtag('event', 'phone_click', {
           'event_category': 'conversion',
-          'event_label': 'phone_header',
-          'value': 1
+          'event_label': label,
+          'value': 50000,
+          'currency': 'KZT',
+          'business_unit': 'video_astana'
         });
       }
       // Track WhatsApp click conversion
       function trackWhatsAppClick(label) {
         gtag('event', 'conversion', {
-          'send_to': 'AW-17847190636/NtyUCITB8KccEOyImr5C',
+          'send_to': 'AW-17847190636/eOOXCL38iagcEOyImr5C',
           'value': 50000.0,
           'currency': 'KZT'
         });
         gtag('event', 'whatsapp_click', {
           'event_category': 'conversion',
           'event_label': label,
-          'value': 1
+          'value': 50000,
+          'currency': 'KZT',
+          'business_unit': 'video_astana'
         });
       }
       // Track form submission
-      function trackFormSubmit() {
+      function trackFormSubmit(label = 'lead_form') {
         gtag('event', 'conversion', {
           'send_to': 'AW-17847190636/NtyUCITB8KccEOyImr5C',
           'value': 50000.0,
@@ -78,8 +80,10 @@
         });
         gtag('event', 'form_submit', {
           'event_category': 'conversion',
-          'event_label': 'lead_form',
-          'value': 1
+          'event_label': label,
+          'value': 50000,
+          'currency': 'KZT',
+          'business_unit': 'video_astana'
         });
       }
     </script>
@@ -91,7 +95,6 @@
         "url": "https://video-astana.kz/",
         "image": "https://video-astana.kz/assets/hero-astana-baiterek-camera.png",
         "telephone": "+77075604453",
-        "email": "manus@acahydraulic.kz",
         "priceRange": "₸₸",
         "address": {
           "@type": "PostalAddress",
@@ -226,7 +229,7 @@
       </nav>
 
       <div class="header-contact">
-        <a href="tel:+77075604453" onclick="trackPhoneClick()">8 707 560 44 53</a>
+        <a href="tel:+77075604453" onclick="trackPhoneClick('phone_header')">8 707 560 44 53</a>
         <span><a href="https://wa.me/77075604453" target="_blank" rel="noopener" onclick="trackWhatsAppClick('header')">Написать в WhatsApp</a></span>
       </div>
 
@@ -245,8 +248,8 @@
             <div class="live-counter" aria-label="Установленные камеры">
               <span class="live-dot" aria-hidden="true"></span>
               <div>
-                <strong><span id="installedCounter">1 736</span> камер видеонаблюдения установили</strong>
-                <small>монтажи идут прямо сейчас по Астане</small>
+                <strong>Реальные объекты под видеонаблюдением</strong>
+                <small>подбираем камеры под квартиры, дома и бизнес</small>
               </div>
             </div>
 
@@ -365,7 +368,7 @@
               <small>Смета считается автоматически по выбранной конфигурации</small>
             </div>
 
-            <a class="btn primary full" id="calcRequestLink" href="mailto:manus@acahydraulic.kz?subject=Заявка%20на%20видеонаблюдение">Оставить заявку</a>
+            <a class="btn primary full" id="calcRequestLink" href="https://wa.me/77075604453" target="_blank" rel="noopener">Оставить заявку</a>
             <p class="calc-note">Точная стоимость после выезда специалиста</p>
           </form>
         </div>
@@ -581,14 +584,14 @@
         <span>Видеонаблюдение, оборудование и монтаж под ключ в Астане</span>
       </div>
       <div class="footer-actions">
-        <a class="btn secondary" href="tel:+770****4453" onclick="trackPhoneClick()">8 707 560 44 53</a>
+        <a class="btn secondary" href="tel:+77075604453" onclick="trackPhoneClick('phone_footer')">8 707 560 44 53</a>
         <a class="btn secondary" href="https://wa.me/77075604453" target="_blank" rel="noopener" onclick="trackWhatsAppClick('footer')">WhatsApp</a>
-        <button class="btn primary" type="button" data-open-modal onclick="trackFormSubmit()">Оставить заявку</button>
+        <button class="btn primary" type="button" data-open-modal>Оставить заявку</button>
       </div>
     </footer>
 
     <dialog class="lead-modal" id="leadModal">
-      <form class="lead-form" id="leadForm" action="mailto:manus@acahydraulic.kz" method="post" enctype="text/plain">
+      <form class="lead-form" id="leadForm" action="#">
         <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
         <span class="section-kicker">Заявка</span>
         <h2>Получить смету</h2>
@@ -620,7 +623,7 @@
           <span>Итого</span>
           <strong id="cartTotal">0 ₸</strong>
         </div>
-        <a class="btn primary full" id="cartCheckout" href="mailto:manus@acahydraulic.kz?subject=Заявка%20на%20оборудование">Оставить заявку</a>
+        <a class="btn primary full" id="cartCheckout" href="https://wa.me/77075604453" target="_blank" rel="noopener">Оставить заявку</a>
         <button class="btn secondary full" type="button" disabled>Оплата онлайн скоро</button>
       </form>
     </dialog>
@@ -637,10 +640,10 @@
         <p>Чем можем Вам помочь?</p>
         <div class="consultant-actions">
           <button class="btn secondary" type="button" data-open-modal>Перезвоните мне</button>
-          <a class="btn primary" href="https://wa.me/77075604453" target="_blank" rel="noopener">Написать в WhatsApp</a>
+          <a class="btn primary" href="https://wa.me/77075604453" target="_blank" rel="noopener" onclick="trackWhatsAppClick('consultant')">Написать в WhatsApp</a>
         </div>
       </div>
-      <a class="whatsapp-float" href="https://wa.me/77075604453" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">
+      <a class="whatsapp-float" href="https://wa.me/77075604453" target="_blank" rel="noopener" aria-label="Написать в WhatsApp" onclick="trackWhatsAppClick('floating_button')">
         <span>WhatsApp</span>
       </a>
     </aside>

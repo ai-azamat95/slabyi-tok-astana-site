@@ -35,7 +35,6 @@ const formatter = new Intl.NumberFormat("ru-KZ", {
 const body = document.body;
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelectorAll(".site-nav a");
-const installedCounter = document.querySelector("#installedCounter");
 const cameras = document.querySelector("#cameras");
 const cameraCountLabel = document.querySelector("#cameraCountLabel");
 const calcTotal = document.querySelector("#calcTotal");
@@ -64,27 +63,11 @@ let lastTotal = 0;
 let lastEstimate = [];
 let activeShopGroup = "all";
 let cart = loadCart();
-let installedCameraCount = 1736;
-const requestEmail = "manus@acahydraulic.kz";
 const requestPhone = "8 707 560 44 53";
 const whatsappUrl = "https://wa.me/77075604453";
 
 function money(value) {
   return formatter.format(value).replace(/\s?KZT/, "₸");
-}
-
-function formatCount(value) {
-  return new Intl.NumberFormat("ru-RU").format(value);
-}
-
-function startInstalledCounter() {
-  if (!installedCounter) return;
-
-  installedCounter.textContent = formatCount(installedCameraCount);
-  window.setInterval(() => {
-    installedCameraCount += 1;
-    installedCounter.textContent = formatCount(installedCameraCount);
-  }, 9000);
 }
 
 function selectedValue(name) {
@@ -178,9 +161,11 @@ function updateRequestLink() {
     `WhatsApp: ${whatsappUrl}`,
   ];
 
-  calcRequestLink.href = `mailto:${requestEmail}?subject=${encodeURIComponent(
-    "Заявка на видеонаблюдение",
-  )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+  calcRequestLink.href = `${whatsappUrl}?text=${encodeURIComponent(bodyLines.join("\n"))}`;
+  calcRequestLink.onclick = () => {
+    window.trackWhatsAppClick?.("calculator_request");
+    window.trackFormSubmit?.("calculator_whatsapp");
+  };
 }
 
 function syncCalculatorBranches() {
@@ -310,14 +295,17 @@ function updateCartLink(items, total) {
     `WhatsApp: ${whatsappUrl}`,
   ];
 
-  cartCheckout.href = `mailto:${requestEmail}?subject=${encodeURIComponent(
-    "Заявка на оборудование",
-  )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+  cartCheckout.href = `${whatsappUrl}?text=${encodeURIComponent(bodyLines.join("\n"))}`;
+  cartCheckout.onclick = () => {
+    window.trackWhatsAppClick?.("cart_checkout");
+    window.trackFormSubmit?.("cart_whatsapp");
+  };
 }
 
 function submitLeadForm(event) {
   event.preventDefault();
   calculate();
+  window.trackFormSubmit?.("lead_modal_submit");
 
   const bodyLines = [
     "Здравствуйте. Хочу получить смету.",
@@ -336,9 +324,7 @@ function submitLeadForm(event) {
     `WhatsApp: ${whatsappUrl}`,
   ];
 
-  window.location.href = `mailto:${requestEmail}?subject=${encodeURIComponent(
-    "Заявка с сайта Слабый ток",
-  )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+  window.location.href = `${whatsappUrl}?text=${encodeURIComponent(bodyLines.join("\n"))}`;
 }
 
 function renderCart() {
@@ -497,7 +483,6 @@ renderShopTabs();
 renderBarlauProducts();
 renderCart();
 calculate();
-startInstalledCounter();
 
 // Консультант — показывать только когда прокрутил до конца страницы
 (function initConsultantVisibility() {
