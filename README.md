@@ -7,9 +7,10 @@
 - `index.html` — основная страница
 - `styles.css` — стили и адаптив
 - `script.js` — калькулятор, меню, фильтры, модальное окно
-- `barlau-products.js` — импортированные товары Barlau
+- `barlau-products.js` — импортированные товары Barlau с ценами из B2B Excel
 - `assets/` — изображения сайта и каталога
 - `scripts/import-barlau-products.js` — скрипт импорта публичных товаров Barlau
+- `scripts/import-barlau-b2b-products.py` — скрипт импорта цен из `excelExportApi.xlsx`
 
 ## Локальный просмотр
 
@@ -20,6 +21,14 @@ python3 -m http.server 8000
 ```
 
 Потом открыть: `http://localhost:8000`
+
+## Обновление цен Barlau B2B
+
+```bash
+python3 scripts/import-barlau-b2b-products.py
+```
+
+Скрипт скачивает Excel из B2B-экспорта Barlau, фильтрует релевантные товары для видеонаблюдения и обновляет `barlau-products.js`.
 
 ## Статус
 

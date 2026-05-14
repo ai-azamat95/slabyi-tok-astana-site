@@ -255,7 +255,7 @@ function renderBarlauProducts() {
         <article class="barlau-card">
           <img src="${product.image}" alt="${product.title}" />
           <h3>${product.title}</h3>
-          <p>${product.groupTitle || "Оборудование"}${product.stock ? ` · в наличии: ${product.stock} шт.` : ""}</p>
+          <p>${product.groupTitle || "Оборудование"}${product.stock ? ` · в наличии: ${product.stockText || `${product.stock} шт.`}` : ""}</p>
           <strong>${product.priceText}</strong>
           <footer>
             <span></span>
