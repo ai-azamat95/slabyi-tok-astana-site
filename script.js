@@ -322,6 +322,9 @@ function submitLeadForm(event) {
     `WhatsApp: ${whatsappUrl}`,
   ];
 
+  window.gtag?.("event", "videoastana_form_submit", {
+    transport_type: "beacon",
+  });
   window.location.href = `${whatsappUrl}?text=${encodeURIComponent(bodyLines.join("\n"))}`;
 }
 

@@ -89,6 +89,15 @@
           'business_unit': 'video_astana'
         });
       }
+      document.addEventListener('click', function(event) {
+        var link = event.target.closest && event.target.closest('a[href^="tel:"]');
+        if (!link) return;
+
+        gtag('event', 'videoastana_phone_click', {
+          link_url: link.href,
+          transport_type: 'beacon'
+        });
+      }, true);
     </script>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
