@@ -164,7 +164,6 @@ function updateRequestLink() {
   calcRequestLink.href = `${whatsappUrl}?text=${encodeURIComponent(bodyLines.join("\n"))}`;
   calcRequestLink.onclick = () => {
     window.trackWhatsAppClick?.("calculator_request");
-    window.trackFormSubmit?.("calculator_whatsapp");
   };
 }
 
@@ -298,7 +297,6 @@ function updateCartLink(items, total) {
   cartCheckout.href = `${whatsappUrl}?text=${encodeURIComponent(bodyLines.join("\n"))}`;
   cartCheckout.onclick = () => {
     window.trackWhatsAppClick?.("cart_checkout");
-    window.trackFormSubmit?.("cart_whatsapp");
   };
 }
 
