@@ -63,8 +63,8 @@ let lastTotal = 0;
 let lastEstimate = [];
 let activeShopGroup = "all";
 let cart = loadCart();
-const requestPhone = "8 707 560 44 53";
-const whatsappUrl = "https://wa.me/77075604453";
+const requestPhone = "+7 777 608 3077";
+const whatsappUrl = "https://wa.me/77776083077";
 
 function money(value) {
   return formatter.format(value).replace(/\s?KZT/, "₸");
