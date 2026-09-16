@@ -100,7 +100,7 @@ function archiveDays(baseDays, cameraCount) {
 function renderHddDays(cameraCount) {
   Object.entries(hddOptions).forEach(([key, option]) => {
     const label = document.querySelector(`[data-hdd-days="${key}"]`);
-    if (label) label.textContent = `архив ~${archiveDays(option.baseDays, cameraCount)} сут.`;
+    if (label) label.textContent = "срок архива уточняется";
   });
 }
 
@@ -121,7 +121,7 @@ function buildIpEstimate(cameraCount) {
     getCable(cameraCount),
     { title: "Расходный материал", price: ipPrices.consumables },
     {
-      title: `${hdd.title} (архив ~${archiveDays(hdd.baseDays, cameraCount)} сут.)`,
+      title: hdd.title,
       price: hdd.price,
     },
     { title: `Монтаж × ${cameraCount}`, price: ipPrices.installPerCamera * cameraCount },
@@ -192,8 +192,7 @@ function calculate() {
 
 function openModal() {
   calculate();
-  const details = lastEstimate.map((item) => `${item.title}: ${money(item.price)}`).join("; ");
-  modalSummary.textContent = `Ориентир по калькулятору: ${money(lastTotal)}. ${details}. Финальная смета зависит от объекта и длины трасс.`;
+  modalSummary.textContent = `Ориентир по калькулятору: ${money(lastTotal)}. Уточним объект и согласуем состав работ. Подробный расчёт добавится в сообщение WhatsApp.`;
 
   if (typeof modal.showModal === "function" && !modal.open) {
     modal.showModal();
@@ -254,7 +253,7 @@ function renderBarlauProducts() {
         <article class="barlau-card">
           <img src="${product.image}" alt="${product.title}" />
           <h3>${product.title}</h3>
-          <p>${product.groupTitle || "Оборудование"}${product.stock ? ` · в наличии: ${product.stockText || `${product.stock} шт.`}` : ""}</p>
+          <p>${product.groupTitle || "Оборудование"} · наличие уточняется</p>
           <strong>${product.priceText}</strong>
           <footer>
             <span></span>
@@ -310,6 +309,8 @@ function submitLeadForm(event) {
     "",
     `Имя: ${leadName.value || "-"}`,
     `Телефон: ${leadPhone.value || "-"}`,
+    `Объект: ${document.querySelector("#leadObject").value}`,
+    `Город: Астана`,
     `Комментарий: ${leadComment.value || "-"}`,
     "",
     modalSummary.textContent,
@@ -322,7 +323,7 @@ function submitLeadForm(event) {
     `WhatsApp: ${whatsappUrl}`,
   ];
 
-  window.gtag?.("event", "videoastana_form_submit", {
+  window.gtag?.("event", "videoastana_whatsapp_form_open", {
     transport_type: "beacon",
   });
   window.location.href = `${whatsappUrl}?text=${encodeURIComponent(bodyLines.join("\n"))}`;
@@ -507,3 +508,11 @@ calculate();
   // Проверяем сразу на случай если страница уже прокручена
   showIfNearBottom();
 })();
+
+document.querySelectorAll('[data-object]').forEach(button => {
+ button.addEventListener('click', () => {
+  const select = document.querySelector('#leadObject');
+  const mapping = {'Магазины':'Магазин','Аптеки':'Аптека','Ломбарды':'Ломбард','Офисы и склады':'Офис или склад','Кафе и рестораны':'Кафе или ресторан','СТО и мастерские':'СТО или мастерская'};
+  select.value = mapping[button.dataset.object];
+ });
+});

@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Установка видеонаблюдения в Астане под ключ | HiWatch, Hikvision</title>
+    <title>Монтаж камер для бизнеса в Астане | Слабый ток</title>
     <meta
       name="description"
-      content="Видеонаблюдение под ключ в Астане: подбор камер HiWatch и Hikvision, продажа оборудования, монтаж, настройка телефона и гарантия. Рассчитайте цену онлайн."
+      content="Установка камер в магазинах, аптеках, ломбардах и офисах Астаны. Подбор оборудования, монтаж, запись и просмотр с телефона. Расчёт сметы и звонок специалисту."
     />
     <meta name="geo.region" content="KZ-AST" />
     <meta name="geo.placename" content="Астана" />
@@ -22,15 +22,15 @@
     <meta property="og:locale" content="ru_KZ" />
     <meta property="og:site_name" content="Слабый ток" />
     <meta property="og:title" content="Видеонаблюдение в Астане под ключ" />
-    <meta property="og:description" content="Камеры, регистраторы, монтаж, настройка и гарантия. Рассчитайте стоимость видеонаблюдения для квартиры, дома или бизнеса." />
+    <meta property="og:description" content="Монтаж камер для магазинов, аптек, ломбардов, офисов и складов в Астане. Рассчитайте смету и позвоните специалисту." />
     <meta property="og:url" content="https://video-astana.kz/" />
     <meta property="og:image" content="https://video-astana.kz/assets/hero-astana-baiterek-camera.png" />
     <meta property="og:image:alt" content="Видеонаблюдение под ключ в Астане" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Установка видеонаблюдения в Астане под ключ" />
     <meta name="twitter:description" content="Камеры HiWatch и Hikvision, монтаж, настройка удаленного просмотра, гарантия и расчет цены онлайн." />
-    <link rel="preload" as="image" href="./assets/hero-astana-baiterek-camera.png" />
-    <!-- Google tag: GA4 Video Astana + Google Ads -->
+    <link rel="preload" as="image" href="./assets/works/camera-prep.jpg" />
+    <!-- GA4: contact intent only; Google Ads for the separate account requires verified destination IDs -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z25G5227CP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -40,51 +40,30 @@
         'send_page_view': true,
         'groups': 'video_astana'
       });
-      gtag('config', 'AW-17847190636', {
-        'groups': 'video_astana_ads'
-      });
 
-      // Track phone click conversion
+      // Contact clicks are intent, not verified calls or sales
       function trackPhoneClick(label = 'phone_click') {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-17847190636/ATzxCLr8iagcEOyImr5C',
-          'value': 50000.0,
-          'currency': 'KZT'
-        });
         gtag('event', 'phone_click', {
-          'event_category': 'conversion',
+          'event_category': 'contact_intent',
           'event_label': label,
-          'value': 50000,
           'currency': 'KZT',
           'business_unit': 'video_astana'
         });
       }
-      // Track WhatsApp click conversion
+      // WhatsApp handoff
       function trackWhatsAppClick(label) {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-17847190636/eOOXCL38iagcEOyImr5C',
-          'value': 50000.0,
-          'currency': 'KZT'
-        });
         gtag('event', 'whatsapp_click', {
-          'event_category': 'conversion',
+          'event_category': 'contact_intent',
           'event_label': label,
-          'value': 50000,
           'currency': 'KZT',
           'business_unit': 'video_astana'
         });
       }
-      // Track form submission
+      // Prepared message opened in WhatsApp; delivery is not confirmed
       function trackFormSubmit(label = 'lead_form') {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-17847190636/NtyUCITB8KccEOyImr5C',
-          'value': 50000.0,
-          'currency': 'KZT'
-        });
-        gtag('event', 'form_submit', {
-          'event_category': 'conversion',
+        gtag('event', 'whatsapp_form_open', {
+          'event_category': 'contact_intent',
           'event_label': label,
-          'value': 50000,
           'currency': 'KZT',
           'business_unit': 'video_astana'
         });
@@ -110,184 +89,183 @@
 
       ym(109138375, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/109138375" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript><div><img loading="lazy" decoding="async" src="https://mc.yandex.ru/watch/109138375" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
-        "@id": "https://video-astana.kz/#business",
-        "name": "Слабый ток",
-        "description": "Продажа, монтаж и настройка систем видеонаблюдения, камер HiWatch и Hikvision, регистраторов, PoE-коммутаторов и слаботочных систем в Астане.",
-        "url": "https://video-astana.kz/",
-        "image": "https://video-astana.kz/assets/hero-astana-baiterek-camera.png",
-        "logo": "https://video-astana.kz/assets/site-preview.png",
-        "telephone": "+77776083077",
-        "priceRange": "₸₸",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Астана",
-          "addressCountry": "KZ"
-        },
-        "areaServed": {
-          "@type": "City",
-          "name": "Астана"
-        },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-          "opens": "09:00",
-          "closes": "20:00"
-        },
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "+77776083077",
-          "contactType": "sales",
-          "areaServed": "KZ-AST",
-          "availableLanguage": ["ru"]
-        },
-        "sameAs": ["https://wa.me/77776083077"],
-        "makesOffer": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Установка видеонаблюдения под ключ в Астане",
-              "description": "Подбор камер, монтаж, настройка регистратора и удаленного просмотра"
-            },
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "priceCurrency": "KZT",
-              "minPrice": "50000",
-              "maxPrice": "2000000"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Монтаж слаботочных систем",
-              "description": "Прокладка кабеля, установка PoE-коммутаторов, серверных шкафов"
-            }
-          }
-        ]
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://video-astana.kz/#website",
-        "url": "https://video-astana.kz/",
-        "name": "Слабый ток - видеонаблюдение в Астане",
-        "inLanguage": "ru-KZ",
-        "publisher": {
-          "@id": "https://video-astana.kz/#business"
-        }
-      }
-    </script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "LocalBusiness",
+    "HomeAndConstructionBusiness"
+  ],
+  "@id": "https://video-astana.kz/#business",
+  "name": "Слабый ток",
+  "description": "Продажа, монтаж и настройка систем видеонаблюдения, камер HiWatch и Hikvision, регистраторов, PoE-коммутаторов и слаботочных систем в Астане.",
+  "url": "https://video-astana.kz/",
+  "image": "https://video-astana.kz/assets/hero-astana-baiterek-camera.png",
+  "logo": "https://video-astana.kz/assets/site-preview.png",
+  "telephone": "+77776083077",
+  "priceRange": "₸₸",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Астана",
+    "addressCountry": "KZ"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Астана"
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "09:00",
+    "closes": "20:00"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+77776083077",
+    "contactType": "sales",
+    "areaServed": "KZ-AST",
+    "availableLanguage": [
+      "ru"
+    ]
+  },
+  "sameAs": [
+    "https://wa.me/77776083077"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "itemOffered": {
         "@type": "Service",
-        "@id": "https://video-astana.kz/#video-surveillance-service",
-        "name": "Монтаж видеонаблюдения в Астане",
-        "serviceType": "Установка видеонаблюдения под ключ",
-        "provider": {
-          "@id": "https://video-astana.kz/#business"
-        },
-        "areaServed": {
-          "@type": "City",
-          "name": "Астана"
-        },
-        "brand": [
-          { "@type": "Brand", "name": "HiWatch" },
-          { "@type": "Brand", "name": "Hikvision" }
-        ],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Услуги видеонаблюдения",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Видеонаблюдение для квартиры"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Видеонаблюдение для частного дома"
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Видеонаблюдение для магазина, офиса и склада"
-              }
-            }
-          ]
-        }
+        "name": "Установка видеонаблюдения под ключ в Астане",
+        "description": "Подбор камер, монтаж, настройка регистратора и удаленного просмотра"
       }
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Монтаж слаботочных систем",
+        "description": "Прокладка кабеля, установка PoE-коммутаторов, серверных шкафов"
+      }
+    }
+  ]
+}
     </script>
     <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://video-astana.kz/#website",
+  "url": "https://video-astana.kz/",
+  "name": "Слабый ток - видеонаблюдение в Астане",
+  "inLanguage": "ru-KZ",
+  "publisher": {
+    "@id": "https://video-astana.kz/#business"
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": "https://video-astana.kz/#video-surveillance-service",
+  "name": "Монтаж видеонаблюдения в Астане",
+  "serviceType": "Установка видеонаблюдения под ключ",
+  "provider": {
+    "@id": "https://video-astana.kz/#business"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Астана"
+  },
+  "brand": [
+    {
+      "@type": "Brand",
+      "name": "HiWatch"
+    },
+    {
+      "@type": "Brand",
+      "name": "Hikvision"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Услуги видеонаблюдения",
+    "itemListElement": [
       {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Сколько стоит установка видеонаблюдения в Астане?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Стоимость зависит от количества камер, типа объекта, регистратора, диска и монтажа. На сайте есть калькулятор, который считает ориентировочную смету. Комплект от 50 000 ₸."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "За сколько дней устанавливается видеонаблюдение?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Типовые комплекты для квартиры, дома и небольшого бизнеса устанавливаются за 1-2 дня после согласования сметы."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Какие камеры вы устанавливаете?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Подбираем и устанавливаем IP и Wi-Fi камеры HiWatch, Hikvision, регистраторы, PoE-коммутаторы, жесткие диски и аксессуары."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Можно ли смотреть камеры с телефона?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Да, настраиваем удаленный просмотр через приложение Hik-Connect или iVMS-4500 на iOS и Android из любой точки мира."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Какая гарантия на видеонаблюдение?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Гарантия до 3 лет на оборудование и монтажные работы. Постгарантийное обслуживание и техподдержка."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Вы выезжаете на объект бесплатно?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Да, выезд специалиста по Астане бесплатный. Обследуем объект, подбираем оборудование и составляем смету на месте."
-            }
-          }
-        ]
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Видеонаблюдение для магазина"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Видеонаблюдение для аптеки и ломбарда"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Видеонаблюдение для магазина, офиса и склада"
+        }
       }
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Сколько стоит установка видеонаблюдения?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Цена зависит от количества камер, регистратора, жесткого диска, длины кабеля и сложности монтажа. Ориентировочную смету можно посчитать в калькуляторе."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Какие бренды камер можно поставить?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Чаще всего используем HiWatch и Hikvision. Также можем подобрать доступные китайские решения под бюджет и задачу объекта."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли смотреть камеры с телефона?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Настраиваем приложение, удаленный доступ, запись архива и объясняем, как пользоваться системой после монтажа."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Работаете только по Астане?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Устанавливаем камеры на объектах в Астане. Адрес, время и условия выезда согласуем заранее."
+      }
+    }
+  ]
+}
     </script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -326,86 +304,105 @@
     </header>
 
     <main>
-      <section class="hero" id="about" aria-labelledby="hero-title">
-        <div class="hero-bg" aria-hidden="true"></div>
-        <div class="hero-content">
-          <div class="hero-copy">
-            <h1 id="hero-title">Видеонаблюдение под ключ в Астане</h1>
-            <p class="hero-lead">Оборудование + монтаж + настройка за 1-2 дня</p>
-            <div class="brand-line">HiWatch <span></span> Hikvision <span></span> Китай</div>
+      <section class="hero business-hero" id="about" aria-labelledby="hero-title">
+<div class="business-hero-grid"><div class="business-copy"><p class="eyebrow">АСТАНА · МОНТАЖ ДЛЯ БИЗНЕСА</p>
+<h1 id="hero-title">Установка камер<br>для вашего бизнеса<br><span>в Астане</span></h1>
+<p class="business-lead">Магазин, аптека, ломбард, офис или склад — подберём камеры, проложим кабель и настроим запись и просмотр с телефона.</p>
+<div class="business-actions"><a class="btn primary" href="tel:+77776083077" onclick="trackPhoneClick('hero')">Позвонить: +7 777 608 3077</a><a class="btn outline-light" href="#prices">Рассчитать монтаж</a></div>
+<p class="business-caption">Нужен монтаж на объекте в Астане? Назовите тип помещения и адрес — обсудим зоны обзора и состав работ.</p>
+<div class="business-facts"><span>Оборудование + установка</span><span>Смета до начала работ</span><span>Выезд по согласованию</span></div></div>
+<figure class="business-photo"><img src="./assets/works/camera-prep.jpg" alt="Камеры и оборудование при подготовке к монтажу" fetchpriority="high" width="900" height="1000"><figcaption>Подготовка оборудования к установке · фото наших работ</figcaption></figure></div></section>
 
-            <div class="live-counter" aria-label="Установленные камеры">
-              <span class="live-dot" aria-hidden="true"></span>
-              <div>
-                <strong>Реальные объекты под видеонаблюдением</strong>
-                <small>подбираем камеры под квартиры, дома и бизнес</small>
-              </div>
-            </div>
+      <section class="section business-objects" aria-labelledby="objects-title"><div class="section-head"><span class="section-kicker">Под задачу объекта</span><h2 id="objects-title">Камеры там, где нужен контроль</h2><p>Начинаем с зон обзора и требований к архиву. Количество камер определяем по плану помещения.</p></div><div class="business-object-grid"><article><h3>Магазины</h3><p>Вход, касса, торговый зал и зона приёмки товара.</p><button type="button" class="object-request" data-open-modal data-object="Магазины">Обсудить установку →</button></article><article><h3>Аптеки</h3><p>Кассовая зона, вход и помещения хранения. Доступ к записям — для ответственных сотрудников.</p><button type="button" class="object-request" data-open-modal data-object="Аптеки">Обсудить установку →</button></article><article><h3>Ломбарды</h3><p>Вход, приёмная зона и рабочие места. Детализацию изображения и архив согласуем отдельно.</p><button type="button" class="object-request" data-open-modal data-object="Ломбарды">Обсудить установку →</button></article><article><h3>Офисы и склады</h3><p>Входные группы, коридоры, погрузка и движение товара.</p><button type="button" class="object-request" data-open-modal data-object="Офисы и склады">Обсудить установку →</button></article><article><h3>Кафе и рестораны</h3><p>Зал, касса, служебный вход и зона поставок.</p><button type="button" class="object-request" data-open-modal data-object="Кафе и рестораны">Обсудить установку →</button></article><article><h3>СТО и мастерские</h3><p>Въезд, ремонтные посты и места хранения инструмента.</p><button type="button" class="object-request" data-open-modal data-object="СТО и мастерские">Обсудить установку →</button></article></div></section>
 
-            <div class="hero-badges" aria-label="Преимущества">
-              <div>
-                <span class="badge-icon icon-camera" aria-hidden="true">
-                  <svg viewBox="0 0 64 64" role="img">
-                    <rect x="8" y="20" width="32" height="22" rx="5"></rect>
-                    <path d="M40 25l14-7v28l-14-7z"></path>
-                    <circle cx="24" cy="31" r="7"></circle>
-                    <path d="M16 48h30"></path>
-                  </svg>
-                </span>
-                <strong>Видеонаблюдение<br />под ключ</strong>
-              </div>
-              <div>
-                <span class="badge-icon icon-van" aria-hidden="true">
-                  <svg viewBox="0 0 72 64" role="img">
-                    <path d="M7 25h36v22H7z"></path>
-                    <path d="M43 31h12l9 9v7H43z"></path>
-                    <circle cx="20" cy="49" r="5"></circle>
-                    <circle cx="53" cy="49" r="5"></circle>
-                    <path d="M14 31h18"></path>
-                    <text x="17" y="42">СТ</text>
-                  </svg>
-                </span>
-                <strong>B2B поставки</strong>
-              </div>
-              <div>
-                <span class="badge-icon icon-shield" aria-hidden="true">
-                  <svg viewBox="0 0 64 64" role="img">
-                    <path d="M32 6l22 8v15c0 14-8.8 24.4-22 29C18.8 53.4 10 43 10 29V14z"></path>
-                    <path d="M22 31l7 7 14-17"></path>
-                  </svg>
-                </span>
-                <strong>Гарантия<br />до 3 лет</strong>
-              </div>
-              <div>
-                <span class="badge-icon icon-baiterek" aria-hidden="true">
-                  <svg viewBox="0 0 64 64" role="img">
-                    <circle cx="32" cy="13" r="8"></circle>
-                    <path d="M32 21v34"></path>
-                    <path d="M24 55h16"></path>
-                    <path d="M20 33h24"></path>
-                    <path d="M24 21l-8 34"></path>
-                    <path d="M40 21l8 34"></path>
-                  </svg>
-                </span>
-                <strong>Работаем<br />по Астане</strong>
-              </div>
-            </div>
 
-            <ul class="hero-list">
-              <li>Бесплатный выезд и подбор решения</li>
-              <li>Прозрачная смета на оборудование и монтаж</li>
-              <li>Официальная гарантия и поддержка</li>
+
+      <section class="section service-strip" id="services">
+        <div class="turnkey-card">
+          <div>
+            <h2>Монтаж под ключ</h2>
+            <ul>
+              <li>Выезд и обследование объекта</li>
+              <li>Подбор оборудования</li>
+              <li>Монтаж и настройка</li>
+              <li>Тестирование и ввод в эксплуатацию</li>
+              <li>Условия обслуживания согласуем в договоре</li>
             </ul>
-
-            <div class="hero-actions">
-              <a class="btn primary" href="#prices">Рассчитать стоимость</a>
-              <button class="btn outline-light" type="button" data-open-modal>Получить смету</button>
-            </div>
           </div>
+          <img loading="lazy" decoding="async" src="./assets/works/server-after-install.jpg" alt="Монтаж видеонаблюдения под ключ" />
+        </div>
+      </section>
 
-          <form class="calculator hero-calculator" id="prices" aria-label="Калькулятор стоимости">
+      <section class="section works-section" id="works">
+        <div class="section-head split">
+          <div>
+            <span class="section-kicker">Наши работы</span>
+            <h2>Реальные объекты и монтаж</h2>
+            <p>Фото выполненных работ: монтаж, настройка регистратора, поставка и подготовка камер.</p>
+          </div>
+          <button class="btn secondary" type="button" data-open-modal>Обсудить похожий объект</button>
+        </div>
+
+        <div class="works-grid">
+          <article class="work-card work-card-large">
+            <img loading="lazy" decoding="async" src="./assets/works/camera-selection.jpg" alt="Выбор камер HiWatch для системы видеонаблюдения" />
+            <div class="work-card-body">
+              <span class="work-meta">Подбор оборудования</span>
+              <h3>Выбор камер</h3>
+              <p>Подбираем тип камеры под задачу: уличную, внутреннюю, купольную или цилиндрическую.</p>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img loading="lazy" decoding="async" src="./assets/works/nvr-setup.jpg" alt="Настройка регистратора видеонаблюдения" />
+            <div class="work-card-body">
+              <span class="work-meta">Пусконаладка</span>
+              <h3>Настройка регистратора</h3>
+              <p>Подключение камер, проверка сети и архива.</p>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img loading="lazy" decoding="async" src="./assets/works/server-after-install.jpg" alt="Серверный шкаф после установки и подключения" />
+            <div class="work-card-body">
+              <span class="work-meta">Готовый узел</span>
+              <h3>Сервер после установки</h3>
+              <p>Оборудование подключено, запущено и готово к работе.</p>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img loading="lazy" decoding="async" src="./assets/works/equipment-delivery.jpg" alt="Поставка оборудования для видеонаблюдения" />
+            <div class="work-card-body">
+              <span class="work-meta">Комплектация</span>
+              <h3>Поставка оборудования</h3>
+              <p>Подбираем комплект под объект перед монтажом.</p>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img loading="lazy" decoding="async" src="./assets/works/camera-prep.jpg" alt="Подготовка камеры HiWatch к монтажу" />
+            <div class="work-card-body">
+              <span class="work-meta">Подготовка</span>
+              <h3>Проверка камер</h3>
+              <p>Осматриваем корпус, крепления и комплектацию.</p>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <img loading="lazy" decoding="async" src="./assets/works/low-voltage-server.jpg" alt="Монтаж слаботочной системы и подключение серверного оборудования" />
+            <div class="work-card-body">
+              <span class="work-meta">Слаботочная система</span>
+              <h3>Установка сервера и подключение</h3>
+              <p>Подключение серверного оборудования после прокладки кабеля и подготовки трасс.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section estimate-section" aria-label="Расчёт стоимости"><form class="calculator" id="prices" aria-label="Калькулятор стоимости">
             <div class="calc-head">
-              <h2>Калькулятор стоимости</h2>
+              <h2>Рассчитайте оборудование и монтаж</h2><p>Предварительный расчёт. Итоговая смета — после уточнения объекта, кабельных трасс и условий монтажа.</p>
             </div>
 
             <fieldset>
@@ -430,7 +427,7 @@
                   <span>Количество камер</span>
                   <strong><span id="cameraCountLabel">4</span> шт.</strong>
                 </div>
-                <input id="cameras" type="range" min="1" max="32" value="4" />
+                <input aria-label="Количество камер" id="cameras" type="range" min="1" max="32" value="4" />
               </div>
 
               <fieldset>
@@ -457,93 +454,46 @@
               <small>Смета считается автоматически по выбранной конфигурации</small>
             </div>
 
-            <a class="btn primary full" id="calcRequestLink" href="https://wa.me/77776083077" target="_blank" rel="noopener">Оставить заявку</a>
+            <a class="btn primary full" id="calcRequestLink" href="https://wa.me/77776083077" target="_blank" rel="noopener">Обсудить смету в WhatsApp</a>
             <p class="calc-note">Точная стоимость после выезда специалиста</p>
-          </form>
-        </div>
-      </section>
-
-      <section class="object-cards" aria-label="Типы объектов">
-        <article class="object-card" data-object-card="flat">
-          <div class="object-copy">
-            <span class="object-icon">▥</span>
-            <h2>Квартира</h2>
-            <p>Оптимальные комплекты для квартир и небольших помещений</p>
-            <ul>
-              <li>2-4 камеры</li>
-              <li>Онлайн просмотр со смартфона</li>
-              <li>Монтаж за 1 день</li>
-            </ul>
-          </div>
-          <img src="./assets/apartment-camera-plan.png" alt="Схема квартиры с камерами видеонаблюдения по углам" />
-        </article>
-
-        <article class="object-card" data-object-card="house">
-          <div class="object-copy">
-            <span class="object-icon">⌂</span>
-            <h2>Дом</h2>
-            <p>Комплексные решения для частных домов и коттеджей</p>
-            <ul>
-              <li>4-8 камер</li>
-              <li>Уличные и внутренние камеры</li>
-              <li>Удаленный доступ 24/7</li>
-            </ul>
-          </div>
-          <img src="./assets/house-camera-plan.png" alt="Схема дома с гаражом и зонами охвата камер" />
-        </article>
-
-        <article class="object-card" data-object-card="business">
-          <div class="object-copy">
-            <span class="object-icon">▦</span>
-            <h2>Бизнес</h2>
-            <p>Надежные системы для бизнеса и коммерческих объектов</p>
-            <ul>
-              <li>8+ камер</li>
-              <li>Высокое разрешение</li>
-              <li>Архив и аналитика</li>
-            </ul>
-          </div>
-          <img src="./assets/business-global-coverage.png" alt="Глобальная схема видеонаблюдения для бизнеса" />
-        </article>
-      </section>
-
-      <section class="section catalog-section" id="catalog">
+          </form><p class="archive-note">Глубина архива зависит от разрешения, частоты кадров, сжатия и режима записи. Объём диска подбираем под требуемый срок хранения.</p></section>
+<section class="section catalog-section" id="catalog">
         <div class="section-head split">
           <div>
-            <h2>Магазин оборудования</h2>
-            <p>Камеры, регистраторы, PoE-коммутаторы и диски с актуальными карточками Barlau. Добавляйте позиции в корзину и отправляйте заявку.</p>
+            <h2>Оборудование для установки</h2>
+            <p>Примеры оборудования для комплектации системы. Наличие и стоимость подтверждаем при подготовке сметы. Корзина открывает запрос в WhatsApp.</p>
           </div>
           <button class="btn secondary" type="button" data-cart-open>Корзина <span id="cartCountInline">0</span></button>
         </div>
 
         <div class="category-grid">
           <article>
-            <img src="./assets/barlau/11108-hiwatch-ipc-b040-b-2-8mm-ip-камера-цилиндрическая.jpeg" alt="HiWatch камера" />
+            <img loading="lazy" decoding="async" src="./assets/barlau/11108-hiwatch-ipc-b040-b-2-8mm-ip-камера-цилиндрическая.jpeg" alt="HiWatch камера" />
             <h3>HiWatch</h3>
             <p>IP и аналоговые</p>
           </article>
           <article>
-            <img src="./assets/barlau/9996-hiwatch-ds-i853m-2-8mm-ip-камера-купольная.jpeg" alt="Hikvision камера" />
+            <img loading="lazy" decoding="async" src="./assets/barlau/9996-hiwatch-ds-i853m-2-8mm-ip-камера-купольная.jpeg" alt="Hikvision камера" />
             <h3>Hikvision</h3>
             <p>Камеры IP и аналоговые</p>
           </article>
           <article>
-            <img src="./assets/cctv-products.png" alt="Камеры без бренда" />
+            <img loading="lazy" decoding="async" src="./assets/cctv-products.png" alt="Камеры без бренда" />
             <h3>Камеры без бренда</h3>
             <p>Доступные решения</p>
           </article>
           <article>
-            <img src="./assets/barlau/11129-hiwatch-ds-h216qa-c-tvi-видеорегистратор.jpeg" alt="Видеорегистратор" />
+            <img loading="lazy" decoding="async" src="./assets/barlau/11129-hiwatch-ds-h216qa-c-tvi-видеорегистратор.jpeg" alt="Видеорегистратор" />
             <h3>Регистраторы</h3>
             <p>NVR / DVR</p>
           </article>
           <article>
-            <img src="./assets/cctv-products.png" alt="Жесткий диск" />
+            <img loading="lazy" decoding="async" src="./assets/cctv-products.png" alt="Жесткий диск" />
             <h3>Жесткие диски</h3>
             <p>Для видеонаблюдения</p>
           </article>
           <article>
-            <img src="./assets/cctv-products.png" alt="Аксессуары" />
+            <img loading="lazy" decoding="async" src="./assets/cctv-products.png" alt="Аксессуары" />
             <h3>Аксессуары</h3>
             <p>Блоки питания, кабель</p>
           </article>
@@ -555,98 +505,13 @@
             <strong id="cartCount">0</strong>
           </button>
         </div>
-        <div class="barlau-grid" id="barlauGrid" aria-label="Товары Barlau"></div>
+        <div class="barlau-grid" id="barlauGrid" aria-label="Оборудование для системы"></div>
       </section>
-
-      <section class="section service-strip" id="services">
-        <div class="turnkey-card">
-          <div>
-            <h2>Монтаж под ключ</h2>
-            <ul>
-              <li>Выезд и обследование объекта</li>
-              <li>Подбор оборудования</li>
-              <li>Монтаж и настройка</li>
-              <li>Тестирование и ввод в эксплуатацию</li>
-              <li>Гарантийное и постгарантийное обслуживание</li>
-            </ul>
-          </div>
-          <img src="./assets/hero-installation.png" alt="Монтаж видеонаблюдения под ключ" />
-        </div>
-      </section>
-
-      <section class="section works-section" id="works">
-        <div class="section-head split">
-          <div>
-            <span class="section-kicker">Наши работы</span>
-            <h2>Реальные объекты и монтаж</h2>
-            <p>Отобранные кадры с ваших объектов: монтаж, настройка регистратора, поставка и подготовка камер.</p>
-          </div>
-          <button class="btn secondary" type="button" data-open-modal>Обсудить похожий объект</button>
-        </div>
-
-        <div class="works-grid">
-          <article class="work-card work-card-large">
-            <img src="./assets/works/camera-selection.jpg" alt="Выбор камер HiWatch для системы видеонаблюдения" />
-            <div class="work-card-body">
-              <span class="work-meta">Подбор оборудования</span>
-              <h3>Выбор камер</h3>
-              <p>Подбираем тип камеры под задачу: уличную, внутреннюю, купольную или цилиндрическую.</p>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <img src="./assets/works/nvr-setup.jpg" alt="Настройка регистратора видеонаблюдения" />
-            <div class="work-card-body">
-              <span class="work-meta">Пусконаладка</span>
-              <h3>Настройка регистратора</h3>
-              <p>Подключение камер, проверка сети и архива.</p>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <img src="./assets/works/server-after-install.jpg" alt="Серверный шкаф после установки и подключения" />
-            <div class="work-card-body">
-              <span class="work-meta">Готовый узел</span>
-              <h3>Сервер после установки</h3>
-              <p>Оборудование подключено, запущено и готово к работе.</p>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <img src="./assets/works/equipment-delivery.jpg" alt="Поставка оборудования для видеонаблюдения" />
-            <div class="work-card-body">
-              <span class="work-meta">Комплектация</span>
-              <h3>Поставка оборудования</h3>
-              <p>Подбираем комплект под объект перед монтажом.</p>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <img src="./assets/works/camera-prep.jpg" alt="Подготовка камеры HiWatch к монтажу" />
-            <div class="work-card-body">
-              <span class="work-meta">Подготовка</span>
-              <h3>Проверка камер</h3>
-              <p>Осматриваем корпус, крепления и комплектацию.</p>
-            </div>
-          </article>
-
-          <article class="work-card">
-            <img src="./assets/works/low-voltage-server.jpg" alt="Монтаж слаботочной системы и подключение серверного оборудования" />
-            <div class="work-card-body">
-              <span class="work-meta">Слаботочная система</span>
-              <h3>Установка сервера и подключение</h3>
-              <p>Подключение серверного оборудования после прокладки кабеля и подготовки трасс.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section seo-section" aria-labelledby="seo-title">
+<section class="section seo-section" aria-labelledby="seo-title">
         <div class="section-head">
           <h2 id="seo-title">Установка видеонаблюдения в Астане</h2>
           <p>
-            Компания «Слабый ток» выполняет подбор, поставку, монтаж и настройку видеонаблюдения для квартир,
-            частных домов, офисов, магазинов, складов, кафе и коммерческих объектов в Астане.
+            Компания «Слабый ток» выполняет подбор, поставку, монтаж и настройку видеонаблюдения для магазинов, аптек, ломбардов, офисов, складов, кафе и коммерческих объектов в Астане.
           </p>
         </div>
         <div class="seo-grid">
@@ -660,15 +525,15 @@
           </article>
           <article>
             <h3>Почему удобно</h3>
-            <p>Прозрачная смета, калькулятор на сайте, реальные фото работ, гарантия до 3 лет и связь через WhatsApp.</p>
+            <p>Прозрачная смета, калькулятор на сайте, реальные фото работ, согласованные условия работ и связь через WhatsApp.</p>
           </article>
         </div>
         <div class="seo-detail-grid">
           <article class="seo-detail-card">
             <h3>Для каких объектов устанавливаем камеры</h3>
             <ul>
-              <li>Квартиры, подъезды, паркинги и кладовые помещения</li>
-              <li>Частные дома, коттеджи, дворы, ворота и периметр</li>
+              <li>Магазины: кассы, торговые залы и приёмка товара</li>
+              <li>Аптеки и ломбарды: вход, рабочие места и хранение</li>
               <li>Магазины, офисы, кафе, склады, СТО и небольшое производство</li>
               <li>Объекты, где нужен удаленный просмотр с телефона и архив записей</li>
             </ul>
@@ -676,10 +541,10 @@
           <article class="seo-detail-card">
             <h3>Работаем по районам Астаны</h3>
             <ul>
-              <li>Есиль, Нура, Алматы, Сарыарка и Байконур</li>
-              <li>Левый и правый берег, жилые комплексы и частный сектор</li>
+              <li>Левый и правый берег Астаны</li>
+              <li>Торговые помещения, аптеки и ломбарды</li>
               <li>Коммерческие помещения, склады и офисы внутри города</li>
-              <li>Пригородные объекты обсуждаем отдельно по выезду</li>
+              <li>Монтаж выполняем на объектах в пределах Астаны</li>
             </ul>
           </article>
           <article class="seo-detail-card">
@@ -714,7 +579,7 @@
           </article>
           <article>
             <h3>Работаете только по Астане?</h3>
-            <p>Основной город работы - Астана. По объектам рядом с городом условия выезда и монтажа согласуются отдельно.</p>
+            <p>Устанавливаем камеры на объектах в Астане. Адрес, время и условия выезда согласуем заранее.</p>
           </article>
         </div>
       </section>
@@ -732,11 +597,11 @@
       </div>
     </footer>
 
-    <dialog class="lead-modal" id="leadModal">
+    <dialog class="lead-modal" id="leadModal" aria-labelledby="leadTitle">
       <form class="lead-form" id="leadForm" action="#">
         <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
         <span class="section-kicker">Заявка</span>
-        <h2>Получить смету</h2>
+        <h2 id="leadTitle">Получить смету</h2>
         <p id="modalSummary">Заполните контакты, расчет подтянется из калькулятора.</p>
         <label>
           Имя
@@ -744,13 +609,13 @@
         </label>
         <label>
           Телефон
-          <input id="leadPhone" name="Телефон" type="tel" placeholder="8 ___ ___ __ __" />
+          <input id="leadPhone" name="Телефон" type="tel" required pattern="[+0-9() .\-]{10,24}" autocomplete="tel" minlength="10" maxlength="24" placeholder="8 ___ ___ __ __" />
         </label>
-        <label>
+        <label>Тип объекта<select id="leadObject" name="Объект"><option>Магазин</option><option>Аптека</option><option>Ломбард</option><option>Офис или склад</option><option>Кафе или ресторан</option><option>СТО или мастерская</option><option>Другой объект в Астане</option></select></label><label>
           Комментарий
           <textarea id="leadComment" name="Комментарий" rows="3" placeholder="Адрес, объект, пожелания"></textarea>
         </label>
-        <button class="btn primary full" value="default">Отправить заявку</button>
+        <button class="btn primary full" value="default">Перейти в WhatsApp со сметой</button><p class="handoff-note">Откроется WhatsApp с подготовленным текстом. Чтобы передать заявку, отправьте сообщение в чате. Или позвоните: <a href="tel:+77776083077" onclick="trackPhoneClick('form')">+7 777 608 3077</a>.</p>
       </form>
     </dialog>
 
@@ -765,30 +630,12 @@
           <span>Итого</span>
           <strong id="cartTotal">0 ₸</strong>
         </div>
-        <a class="btn primary full" id="cartCheckout" href="https://wa.me/77776083077" target="_blank" rel="noopener">Оставить заявку</a>
+        <a class="btn primary full" id="cartCheckout" href="https://wa.me/77776083077" target="_blank" rel="noopener">Обсудить смету в WhatsApp</a>
         <button class="btn secondary full" type="button" disabled>Оплата онлайн скоро</button>
       </form>
     </dialog>
 
-    <aside class="consultant-widget" aria-label="Онлайн консультант">
-      <div class="consultant-card">
-        <div class="consultant-head">
-          <span class="consultant-avatar">А</span>
-          <div>
-            <strong>Азамат</strong>
-            <span>онлайн консультант</span>
-          </div>
-        </div>
-        <p>Чем можем Вам помочь?</p>
-        <div class="consultant-actions">
-          <button class="btn secondary" type="button" data-open-modal>Перезвоните мне</button>
-          <a class="btn primary" href="https://wa.me/77776083077" target="_blank" rel="noopener" onclick="trackWhatsAppClick('consultant')">Написать в WhatsApp</a>
-        </div>
-      </div>
-      <a class="whatsapp-float" href="https://wa.me/77776083077" target="_blank" rel="noopener" aria-label="Написать в WhatsApp" onclick="trackWhatsAppClick('floating_button')">
-        <span>WhatsApp</span>
-      </a>
-    </aside>
+    <aside class="contact-dock" aria-label="Связаться по монтажу"><a href="tel:+77776083077" onclick="trackPhoneClick('sticky')">Позвонить</a><a href="https://wa.me/77776083077?text=Здравствуйте!%20Нужен%20монтаж%20камер%20на%20объекте%20в%20Астане." target="_blank" rel="noopener" onclick="trackWhatsAppClick('sticky')">WhatsApp · монтаж</a></aside>
 
     <script src="./barlau-products.js"></script>
     <script src="./script.js"></script>
