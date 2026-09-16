@@ -51,3 +51,10 @@ test('contact tracking records intent without sales values or old Ads destinatio
  const events=context.dataLayer.filter(x=>x[0]==='event');assert.deepEqual(Array.from(events,x=>x[1]),['phone_click','whatsapp_click','whatsapp_form_open']);
  for(const event of events){assert.equal(event[2].value,undefined);assert.equal(event[2].send_to,undefined);}
 });
+
+test('phone pattern accepts common formats and rejects text',()=>{
+ const pattern=fs.readFileSync('index.html','utf8').match(/pattern="([^"]*)"/)[1];
+ const regex=new RegExp(`^(?:${pattern})$`,'v');
+ for(const phone of ['+7 700 000 00 00','8 (700) 000-00-00','+77000000000'])assert.ok(regex.test(phone));
+ assert.equal(regex.test('not a phone'),false);
+});
