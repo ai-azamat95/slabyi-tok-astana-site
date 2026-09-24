@@ -5,16 +5,46 @@
 >
   <url>
     <loc>https://video-astana.kz/</loc>
-    <lastmod>2026-09-17</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://video-astana.kz/assets/hero-astana-baiterek-camera.png</image:loc>
-      <image:title>Видеонаблюдение под ключ в Астане</image:title>
+      <image:loc>https://video-astana.kz/assets/works/camera-prep.jpg</image:loc>
+      <image:title>Подготовка камер к монтажу в Астане</image:title>
     </image:image>
     <image:image>
       <image:loc>https://video-astana.kz/assets/works/camera-selection.jpg</image:loc>
       <image:title>Подбор камер HiWatch для видеонаблюдения</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://video-astana.kz/videonablyudenie-dlya-magazina-astana/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://video-astana.kz/assets/works/camera-prep.jpg</image:loc>
+      <image:title>Камеры видеонаблюдения для магазина в Астане</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://video-astana.kz/videonablyudenie-dlya-apteki-astana/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://video-astana.kz/assets/works/nvr-setup.jpg</image:loc>
+      <image:title>Настройка видеонаблюдения для аптеки в Астане</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://video-astana.kz/videonablyudenie-dlya-lombarda-astana/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://video-astana.kz/assets/works/low-voltage-server.jpg</image:loc>
+      <image:title>Система видеонаблюдения для ломбарда в Астане</image:title>
     </image:image>
   </url>
 </urlset>

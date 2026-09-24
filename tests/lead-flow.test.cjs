@@ -48,8 +48,29 @@ test('contact tracking records intent without sales values or old Ads destinatio
  const html=fs.readFileSync('index.html','utf8');const script=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].find(m=>m[1].includes('function trackPhoneClick'))[1];
  const context={window:{},document:{addEventListener(){}},Date};context.window.dataLayer=[];context.dataLayer=context.window.dataLayer;vm.createContext(context);vm.runInContext(script,context);
  vm.runInContext("trackPhoneClick('hero');trackWhatsAppClick('sticky');trackFormSubmit('lead_modal_submit')",context);
- const events=context.dataLayer.filter(x=>x[0]==='event');assert.deepEqual(Array.from(events,x=>x[1]),['phone_click','whatsapp_click','whatsapp_form_open']);
+ const events=context.dataLayer.filter(x=>x[0]==='event');assert.deepEqual(Array.from(events,x=>x[1]),['phone_click','videoastana_phone_click','whatsapp_click','videoastana_whatsapp_click','whatsapp_form_open']);
  for(const event of events){assert.equal(event[2].value,undefined);assert.equal(event[2].send_to,undefined);}
+});
+
+test('SEO service pages have unique canonical metadata, valid JSON-LD and sitemap coverage',()=>{
+ const pages=[
+  'videonablyudenie-dlya-magazina-astana',
+  'videonablyudenie-dlya-apteki-astana',
+  'videonablyudenie-dlya-lombarda-astana',
+ ];
+ const sitemap=fs.readFileSync('sitemap.xml','utf8');
+ const titles=new Set();
+ for(const slug of pages){
+  const html=fs.readFileSync(`${slug}/index.html`,'utf8');
+  const title=html.match(/<title>([^<]+)<\/title>/)?.[1];
+  assert.ok(title);assert.equal(titles.has(title),false);titles.add(title);
+  assert.match(html,new RegExp(`<link rel="canonical" href="https://video-astana\\.kz/${slug}/"`));
+  assert.match(html,/<html lang="ru-KZ">/);
+  assert.match(html,/\+7 777 608 3077/);
+  assert.doesNotMatch(html,/до 3 лет|за 1-2 дня|гарантируем|круглосуточно/);
+  for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))JSON.parse(m[1]);
+  assert.match(sitemap,new RegExp(`https://video-astana\\.kz/${slug}/`));
+ }
 });
 
 test('phone pattern accepts common formats and rejects text',()=>{
