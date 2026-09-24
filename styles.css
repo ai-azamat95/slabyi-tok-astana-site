@@ -1786,6 +1786,8 @@ img { max-width: 100%; }
 .business-object-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0 28px; }
 .business-object-grid article { border-top: 1px solid #cbd1d8; padding: 24px 0; display: flex; flex-direction: column; align-items: flex-start; }
 .business-object-grid h3 { font-size: 22px; margin: 0 0 12px; }
+.business-object-grid h3 a { color: inherit; text-decoration-color: rgba(164,20,27,.35); text-underline-offset: 5px; }
+.business-object-grid h3 a:hover { color: #a4141b; text-decoration-color: currentColor; }
 .business-object-grid p { color: #535e69; line-height: 1.6; margin: 0 0 20px; }
 .object-request { margin-top: auto; background: transparent; border: 0; padding: 8px 0; color: #a4141b; font-weight: 700; text-align: left; }
 .estimate-section { background: #e9edf1; }

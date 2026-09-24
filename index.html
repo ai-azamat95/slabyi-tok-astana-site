@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru-KZ">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,14 +21,17 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="ru_KZ" />
     <meta property="og:site_name" content="Слабый ток" />
-    <meta property="og:title" content="Видеонаблюдение в Астане под ключ" />
+    <meta property="og:title" content="Монтаж камер для бизнеса в Астане" />
     <meta property="og:description" content="Монтаж камер для магазинов, аптек, ломбардов, офисов и складов в Астане. Рассчитайте смету и позвоните специалисту." />
     <meta property="og:url" content="https://video-astana.kz/" />
-    <meta property="og:image" content="https://video-astana.kz/assets/hero-astana-baiterek-camera.png" />
-    <meta property="og:image:alt" content="Видеонаблюдение под ключ в Астане" />
+    <meta property="og:image" content="https://video-astana.kz/assets/works/camera-prep.jpg" />
+    <meta property="og:image:width" content="1600" />
+    <meta property="og:image:height" content="900" />
+    <meta property="og:image:alt" content="Подготовка камер к монтажу на объекте в Астане" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Установка видеонаблюдения в Астане под ключ" />
-    <meta name="twitter:description" content="Камеры HiWatch и Hikvision, монтаж, настройка удаленного просмотра, гарантия и расчет цены онлайн." />
+    <meta name="twitter:title" content="Монтаж камер для бизнеса в Астане" />
+    <meta name="twitter:description" content="Подбор оборудования, монтаж, запись и просмотр с телефона для магазинов, аптек, ломбардов, офисов и складов." />
+    <meta name="twitter:image" content="https://video-astana.kz/assets/works/camera-prep.jpg" />
     <link rel="preload" as="image" href="./assets/works/camera-prep.jpg" />
     <!-- GA4: contact intent only; Google Ads for the separate account requires verified destination IDs -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z25G5227CP"></script>
@@ -49,6 +52,12 @@
           'currency': 'KZT',
           'business_unit': 'video_astana'
         });
+        gtag('event', 'videoastana_phone_click', {
+          'event_category': 'contact_intent',
+          'event_label': label,
+          'transport_type': 'beacon',
+          'business_unit': 'video_astana'
+        });
       }
       // WhatsApp handoff
       function trackWhatsAppClick(label) {
@@ -56,6 +65,12 @@
           'event_category': 'contact_intent',
           'event_label': label,
           'currency': 'KZT',
+          'business_unit': 'video_astana'
+        });
+        gtag('event', 'videoastana_whatsapp_click', {
+          'event_category': 'contact_intent',
+          'event_label': label,
+          'transport_type': 'beacon',
           'business_unit': 'video_astana'
         });
       }
@@ -68,15 +83,6 @@
           'business_unit': 'video_astana'
         });
       }
-      document.addEventListener('click', function(event) {
-        var link = event.target.closest && event.target.closest('a[href^="tel:"]');
-        if (!link) return;
-
-        gtag('event', 'videoastana_phone_click', {
-          link_url: link.href,
-          transport_type: 'beacon'
-        });
-      }, true);
     </script>
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -102,10 +108,9 @@
   "name": "Слабый ток",
   "description": "Продажа, монтаж и настройка систем видеонаблюдения, камер HiWatch и Hikvision, регистраторов, PoE-коммутаторов и слаботочных систем в Астане.",
   "url": "https://video-astana.kz/",
-  "image": "https://video-astana.kz/assets/hero-astana-baiterek-camera.png",
+  "image": "https://video-astana.kz/assets/works/camera-prep.jpg",
   "logo": "https://video-astana.kz/assets/site-preview.png",
   "telephone": "+77776083077",
-  "priceRange": "₸₸",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Астана",
@@ -115,32 +120,14 @@
     "@type": "City",
     "name": "Астана"
   },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "09:00",
-    "closes": "20:00"
-  },
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+77776083077",
     "contactType": "sales",
-    "areaServed": "KZ-AST",
     "availableLanguage": [
       "ru"
     ]
   },
-  "sameAs": [
-    "https://wa.me/77776083077"
-  ],
   "makesOffer": [
     {
       "@type": "Offer",
@@ -313,7 +300,7 @@
 <div class="business-facts"><span>Оборудование + установка</span><span>Смета до начала работ</span><span>Выезд по согласованию</span></div></div>
 <figure class="business-photo"><img src="./assets/works/camera-prep.jpg" alt="Камеры и оборудование при подготовке к монтажу" fetchpriority="high" width="900" height="1000"><figcaption>Подготовка оборудования к установке · фото наших работ</figcaption></figure></div></section>
 
-      <section class="section business-objects" aria-labelledby="objects-title"><div class="section-head"><span class="section-kicker">Под задачу объекта</span><h2 id="objects-title">Камеры там, где нужен контроль</h2><p>Начинаем с зон обзора и требований к архиву. Количество камер определяем по плану помещения.</p></div><div class="business-object-grid"><article><h3>Магазины</h3><p>Вход, касса, торговый зал и зона приёмки товара.</p><button type="button" class="object-request" data-open-modal data-object="Магазины">Обсудить установку →</button></article><article><h3>Аптеки</h3><p>Кассовая зона, вход и помещения хранения. Доступ к записям — для ответственных сотрудников.</p><button type="button" class="object-request" data-open-modal data-object="Аптеки">Обсудить установку →</button></article><article><h3>Ломбарды</h3><p>Вход, приёмная зона и рабочие места. Детализацию изображения и архив согласуем отдельно.</p><button type="button" class="object-request" data-open-modal data-object="Ломбарды">Обсудить установку →</button></article><article><h3>Офисы и склады</h3><p>Входные группы, коридоры, погрузка и движение товара.</p><button type="button" class="object-request" data-open-modal data-object="Офисы и склады">Обсудить установку →</button></article><article><h3>Кафе и рестораны</h3><p>Зал, касса, служебный вход и зона поставок.</p><button type="button" class="object-request" data-open-modal data-object="Кафе и рестораны">Обсудить установку →</button></article><article><h3>СТО и мастерские</h3><p>Въезд, ремонтные посты и места хранения инструмента.</p><button type="button" class="object-request" data-open-modal data-object="СТО и мастерские">Обсудить установку →</button></article></div></section>
+      <section class="section business-objects" aria-labelledby="objects-title"><div class="section-head"><span class="section-kicker">Под задачу объекта</span><h2 id="objects-title">Камеры там, где нужен контроль</h2><p>Начинаем с зон обзора и требований к архиву. Количество камер определяем по плану помещения.</p></div><div class="business-object-grid"><article><h3><a href="/videonablyudenie-dlya-magazina-astana/">Магазины</a></h3><p>Вход, касса, торговый зал и зона приёмки товара.</p><button type="button" class="object-request" data-open-modal data-object="Магазины">Обсудить установку →</button></article><article><h3><a href="/videonablyudenie-dlya-apteki-astana/">Аптеки</a></h3><p>Кассовая зона, вход и помещения хранения. Доступ к записям — для ответственных сотрудников.</p><button type="button" class="object-request" data-open-modal data-object="Аптеки">Обсудить установку →</button></article><article><h3><a href="/videonablyudenie-dlya-lombarda-astana/">Ломбарды</a></h3><p>Вход, приёмная зона и рабочие места. Детализацию изображения и архив согласуем отдельно.</p><button type="button" class="object-request" data-open-modal data-object="Ломбарды">Обсудить установку →</button></article><article><h3>Офисы и склады</h3><p>Входные группы, коридоры, погрузка и движение товара.</p><button type="button" class="object-request" data-open-modal data-object="Офисы и склады">Обсудить установку →</button></article><article><h3>Кафе и рестораны</h3><p>Зал, касса, служебный вход и зона поставок.</p><button type="button" class="object-request" data-open-modal data-object="Кафе и рестораны">Обсудить установку →</button></article><article><h3>СТО и мастерские</h3><p>Въезд, ремонтные посты и места хранения инструмента.</p><button type="button" class="object-request" data-open-modal data-object="СТО и мастерские">Обсудить установку →</button></article></div></section>
 
 
 
