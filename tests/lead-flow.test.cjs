@@ -70,6 +70,28 @@ test('contact tracking records intent without sales values or old Ads destinatio
  for(const event of events){assert.equal(event[2].value,undefined);assert.equal(event[2].send_to,undefined);}
 });
 
+test('Google Ads receives separate secondary WhatsApp intents without fabricated revenue',()=>{
+ const installDestination='AW-18455982142/9QebCNLnxYkdEL7gv-BE';
+ const equipmentDestination='AW-18455982142/CqNpCKahyokdEL7gv-BE';
+ const homepage=fs.readFileSync('index.html','utf8');
+ const script=fs.readFileSync('script.js','utf8');
+ const equipment=fs.readFileSync('oborudovanie-videonablyudeniya-astana/index.html','utf8');
+ assert.match(homepage,/gtag\('config', 'AW-18455982142'\)/);
+ assert.match(homepage,new RegExp(installDestination.replace('/','\\/')));
+ assert.match(homepage,new RegExp(equipmentDestination.replace('/','\\/')));
+ assert.match(script,/trackGoogleAdsQuote\?\.\(lastRequestType\)/);
+ assert.match(equipment,new RegExp(equipmentDestination.replace('/','\\/')));
+ for(const file of ['videonablyudenie-dlya-magazina-astana/index.html','videonablyudenie-dlya-apteki-astana/index.html','videonablyudenie-dlya-lombarda-astana/index.html']){
+  const html=fs.readFileSync(file,'utf8');
+  assert.match(html,/gtag\('config','AW-18455982142'\)/);
+  assert.match(html,new RegExp(installDestination.replace('/','\\/')));
+ }
+ const conversionPayloads=[homepage,equipment,...['videonablyudenie-dlya-magazina-astana/index.html','videonablyudenie-dlya-apteki-astana/index.html','videonablyudenie-dlya-lombarda-astana/index.html'].map(file=>fs.readFileSync(file,'utf8'))]
+  .flatMap(html=>[...html.matchAll(/gtag\('event',\s*'conversion',\s*\{([\s\S]*?)\}\);?/g)].map(match=>match[1]));
+ assert.ok(conversionPayloads.length>=4);
+ for(const payload of conversionPayloads){assert.doesNotMatch(payload,/\bvalue\s*:/);assert.doesNotMatch(payload,/\bcurrency\s*:/);}
+});
+
 test('SEO service pages have unique canonical metadata, valid JSON-LD and sitemap coverage',()=>{
  const pages=[
   'videonablyudenie-dlya-magazina-astana',

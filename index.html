@@ -33,7 +33,7 @@
     <meta name="twitter:description" content="Подбор оборудования, монтаж, запись и просмотр с телефона для магазинов, аптек, ломбардов, офисов и складов." />
     <meta name="twitter:image" content="https://video-astana.kz/assets/works/camera-prep.jpg" />
     <link rel="preload" as="image" href="./assets/works/camera-prep.jpg" />
-    <!-- GA4: contact intent only; Google Ads for the separate account requires verified destination IDs -->
+    <!-- GA4 plus verified secondary Google Ads contact-intent conversions -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z25G5227CP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -43,6 +43,17 @@
         'send_page_view': true,
         'groups': 'video_astana'
       });
+      gtag('config', 'AW-18455982142');
+
+      function trackGoogleAdsQuote(requestType = 'turnkey') {
+        const destination = requestType === 'equipment'
+          ? 'AW-18455982142/CqNpCKahyokdEL7gv-BE'
+          : 'AW-18455982142/9QebCNLnxYkdEL7gv-BE';
+        gtag('event', 'conversion', {
+          'send_to': destination,
+          'transport_type': 'beacon'
+        });
+      }
 
       // Contact clicks are intent, not verified calls or sales
       function trackPhoneClick(label = 'phone_click') {
