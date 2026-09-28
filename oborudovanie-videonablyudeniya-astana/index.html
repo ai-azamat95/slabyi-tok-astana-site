@@ -23,6 +23,7 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-Z25G5227CP', {'send_page_view': true, 'groups': 'video_astana'});
+      gtag('config', 'AW-18455982142');
 
       function equipmentAttribution() {
         const params = new URLSearchParams(window.location.search);
@@ -60,6 +61,10 @@
           request_type: 'equipment',
           transport_type: 'beacon',
           business_unit: 'video_astana'
+        });
+        gtag('event', 'conversion', {
+          send_to: 'AW-18455982142/CqNpCKahyokdEL7gv-BE',
+          transport_type: 'beacon'
         });
         window.location.href = `https://wa.me/77776083077?text=${encodeURIComponent(lines.join('\n'))}`;
       }

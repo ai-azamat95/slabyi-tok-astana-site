@@ -209,6 +209,7 @@ function updateRequestLink() {
   calcRequestLink.href = `${whatsappUrl}?text=${encodeURIComponent(bodyLines.join("\n"))}`;
   calcRequestLink.onclick = () => {
     window.trackWhatsAppClick?.(`calculator_${lastRequestType}`);
+    window.trackGoogleAdsQuote?.(lastRequestType);
     window.gtag?.("event", "videoastana_quote_open", {
       event_category: "contact_intent",
       request_type: lastRequestType,
@@ -400,6 +401,7 @@ function submitLeadForm(event) {
   window.gtag?.("event", "videoastana_whatsapp_form_open", {
     transport_type: "beacon",
   });
+  window.trackGoogleAdsQuote?.(lastRequestType);
   window.location.href = `${whatsappUrl}?text=${encodeURIComponent(bodyLines.join("\n"))}`;
 }
 
