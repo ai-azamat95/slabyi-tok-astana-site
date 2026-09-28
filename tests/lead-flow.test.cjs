@@ -4,13 +4,15 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 function app() {
  const nodes = new Map();
- const selection = {systemType:'ip',hdd:'1tb',wifiType:'outdoor'};
+ const selection = {requestType:'turnkey',systemType:'ip',hdd:'1tb',wifiType:'outdoor'};
  const node = selector => {
   if (/input\[name=/.test(selector)) return {value:selection[selector.match(/name="([^"]+)"/)[1]]};
   if (!nodes.has(selector)) nodes.set(selector,{value:'',checked:false,textContent:'',innerHTML:'',dataset:{},classList:{add(){},remove(){}},addEventListener(){},showModal(){this.open=true;},close(){this.open=false;}});
   return nodes.get(selector);
  };
- const context = {Intl,console, document:{body:node('body'),querySelector:node,querySelectorAll:()=>[]},localStorage:{getItem:()=>null,setItem(){}},window:{location:{},barlauProducts:[{id:1,title:'Camera',price:15900}]}};
+ const session = new Map();
+ const sessionStorage = {getItem:key=>session.get(key)||null,setItem:(key,value)=>session.set(key,value)};
+ const context = {Intl,console,URLSearchParams,sessionStorage,document:{body:node('body'),querySelector:node,querySelectorAll:()=>[]},localStorage:{getItem:()=>null,setItem(){}},window:{location:{search:''},sessionStorage,barlauProducts:[{id:1,title:'Camera',price:15900}]}};
  vm.createContext(context);
  vm.runInContext(fs.readFileSync('script.js','utf8').split('menuToggle.addEventListener')[0],context);
  node('#cameras').value='4';
@@ -27,6 +29,11 @@ test('Wi-Fi options still recalculate and archive is not promised',()=>{
  a.selection.wifiType='indoor';a.run('calculate()');assert.equal(a.run('lastTotal'),71000);
  a.selection.systemType='ip';a.run('calculate()');assert.doesNotMatch(a.node('#estimateList').innerHTML,/сут\./);
 });
+test('equipment-only request removes installation and keeps source attribution',()=>{
+ const a=app();a.selection.requestType='equipment';a.context.window.location.search='?utm_source=google&utm_campaign=equipment_astana&utm_content=equipment&utm_term=купить+камеры';a.run('calculate()');
+ assert.equal(a.run('lastTotal'),152000);assert.equal(a.node('#installationSubtotalRow').hidden,true);assert.match(a.node('#calcRequestLink').textContent,/оборудования/);
+ const text=new URL(a.node('#calcRequestLink').href).searchParams.get('text');assert.match(text,/Купить оборудование/);assert.match(text,/Источник: Google Ads/);assert.match(text,/equipment_astana/);assert.doesNotMatch(text,/Монтаж ×/);
+});
 test('lead handoff includes object, city, phone and estimate without claiming delivery',()=>{
  const a=app();a.node('#leadName').value='Тест';a.node('#leadPhone').value='+77000000000';a.node('#leadObject').value='Аптека';a.node('#leadComment').value='Нужен монтаж';
  a.run('submitLeadForm({preventDefault(){}})');const url=new URL(a.context.window.location.href);const text=url.searchParams.get('text');
@@ -40,9 +47,20 @@ test('catalog cart quantity and removal remain functional',()=>{
 test('page keeps ad anchors, honest handoff and validated structured data',()=>{
  const html=fs.readFileSync('index.html','utf8');
  for(const id of ['about','catalog','services','works','prices','contacts'])assert.equal((html.match(new RegExp(`id="${id}"`,'g'))||[]).length,1);
+ assert.match(html,/name="requestType" value="equipment"/);assert.match(html,/name="requestType" value="turnkey" checked/);
+ assert.ok(html.indexOf('id="prices"')<html.indexOf('class="section business-objects"'));
  for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))JSON.parse(m[1]);
  assert.match(html,/id="leadPhone"[^>]*required/);assert.match(html,/Чтобы передать заявку, отправьте сообщение в чате/);
  assert.doesNotMatch(html,/AW-17847190636|50000|до 3 лет|за 1-2 дня/);
+});
+
+test('equipment landing page is indexable, tracked and included in sitemap',()=>{
+ const html=fs.readFileSync('oborudovanie-videonablyudeniya-astana/index.html','utf8');
+ assert.match(html,/<link rel="canonical" href="https:\/\/video-astana\.kz\/oborudovanie-videonablyudeniya-astana\/"/);
+ assert.match(html,/Только оборудование или система под ключ/);assert.match(html,/videoastana_equipment_request_open/);
+ assert.match(html,/<meta name="robots" content="index, follow, max-image-preview:large"/);
+ for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))JSON.parse(m[1]);
+ assert.match(fs.readFileSync('sitemap.xml','utf8'),/https:\/\/video-astana\.kz\/oborudovanie-videonablyudeniya-astana\//);
 });
 test('contact tracking records intent without sales values or old Ads destinations',()=>{
  const html=fs.readFileSync('index.html','utf8');const script=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].find(m=>m[1].includes('function trackPhoneClick'))[1];

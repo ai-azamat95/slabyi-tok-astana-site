@@ -1839,3 +1839,101 @@ img { max-width: 100%; }
 .calc-head h2 { overflow-wrap: anywhere; }
 .calculator input[type="radio"] { margin-inline: 0; }
 @media(max-width: 430px) { .calc-head h2 { font-size: 26px; } .calculator { padding: 20px 16px; } }
+
+/* Two-intent calculator: equipment sales and turnkey installation. */
+.estimate-section-early {
+  max-width: none;
+  background: #e9edf1;
+  border-bottom: 1px solid #d4dae1;
+}
+
+.estimate-section-early .calculator {
+  width: min(100%, 920px);
+  margin: 0 auto;
+}
+
+.calc-head .section-kicker {
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.calc-head p {
+  max-width: 680px;
+  margin: 12px auto 0;
+  text-align: center;
+}
+
+.intent-segments {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.intent-segments label {
+  min-height: 78px;
+  padding: 14px 16px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.intent-segments label > span {
+  display: grid;
+  gap: 5px;
+}
+
+.intent-segments strong {
+  font-size: 15px;
+}
+
+.intent-segments small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.calc-object-label {
+  display: grid;
+  gap: 7px;
+}
+
+.calc-object-label select {
+  margin-top: 0;
+}
+
+.estimate-summary {
+  display: grid;
+  gap: 7px;
+  margin: 0 0 14px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: #4d5865;
+  font-size: 14px;
+  text-align: left;
+}
+
+.estimate-summary span {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.estimate-summary strong {
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.estimate-summary [hidden] {
+  display: none;
+}
+
+@media(max-width: 560px) {
+  .intent-segments,
+  .segments {
+    grid-template-columns: 1fr;
+  }
+
+  .intent-segments label {
+    min-height: 70px;
+  }
+}

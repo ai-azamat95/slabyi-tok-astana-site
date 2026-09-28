@@ -275,9 +275,9 @@
 
       <nav class="site-nav" aria-label="Главное меню">
         <a href="#about">О компании</a>
-        <a href="#catalog">Каталог оборудования</a>
+        <a href="/oborudovanie-videonablyudeniya-astana/">Купить оборудование</a>
         <a href="#services">Услуги</a>
-        <a href="#works">Наши работы</a>
+        <a href="#prices">Калькулятор</a>
         <a href="#prices">Цены</a>
         <a href="#contacts">Контакты</a>
       </nav>
@@ -295,10 +295,105 @@
 <div class="business-hero-grid"><div class="business-copy"><p class="eyebrow">АСТАНА · МОНТАЖ ДЛЯ БИЗНЕСА</p>
 <h1 id="hero-title">Установка камер<br>для вашего бизнеса<br><span>в Астане</span></h1>
 <p class="business-lead">Магазин, аптека, ломбард, офис или склад — подберём камеры, проложим кабель и настроим запись и просмотр с телефона.</p>
-<div class="business-actions"><a class="btn primary" href="tel:+77776083077" onclick="trackPhoneClick('hero')">Позвонить: +7 777 608 3077</a><a class="btn outline-light" href="#prices">Рассчитать монтаж</a></div>
+<div class="business-actions"><a class="btn primary" href="#prices">Рассчитать комплект</a><a class="btn outline-light" href="/oborudovanie-videonablyudeniya-astana/">Купить оборудование</a></div>
 <p class="business-caption">Нужен монтаж на объекте в Астане? Назовите тип помещения и адрес — обсудим зоны обзора и состав работ.</p>
 <div class="business-facts"><span>Оборудование + установка</span><span>Смета до начала работ</span><span>Выезд по согласованию</span></div></div>
 <figure class="business-photo"><img src="./assets/works/camera-prep.jpg" alt="Камеры и оборудование при подготовке к монтажу" fetchpriority="high" width="900" height="1000"><figcaption>Подготовка оборудования к установке · фото наших работ</figcaption></figure></div></section>
+
+      <section class="section estimate-section estimate-section-early" aria-labelledby="calculator-title">
+        <form class="calculator" id="prices" aria-label="Калькулятор оборудования и монтажа">
+          <div class="calc-head">
+            <span class="section-kicker">Предварительная смета</span>
+            <h2 id="calculator-title">Рассчитайте комплект видеонаблюдения</h2>
+            <p>Выберите, нужен только комплект оборудования или поставка с монтажом. Итоговую конфигурацию и наличие подтвердим после уточнения объекта.</p>
+          </div>
+
+          <fieldset>
+            <legend>Что вам нужно</legend>
+            <div class="segments intent-segments">
+              <label>
+                <input type="radio" name="requestType" value="equipment" />
+                <span><strong>Только оборудование</strong><small>Камеры, регистратор, диск, PoE и кабель</small></span>
+              </label>
+              <label>
+                <input type="radio" name="requestType" value="turnkey" checked />
+                <span><strong>Оборудование + монтаж</strong><small>Комплект, установка и настройка</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="calc-object-label" for="calculatorObject">
+            Тип объекта
+            <select id="calculatorObject" name="calculatorObject">
+              <option>Магазин</option>
+              <option>Аптека</option>
+              <option>Ломбард</option>
+              <option>Офис или склад</option>
+              <option>Кафе или ресторан</option>
+              <option>СТО или мастерская</option>
+              <option>Дом или квартира</option>
+              <option>Другой объект в Астане</option>
+            </select>
+          </label>
+
+          <fieldset>
+            <legend>Тип системы</legend>
+            <div class="segments">
+              <label><input type="radio" name="systemType" value="wifi" />Wi-Fi камера</label>
+              <label><input type="radio" name="systemType" value="ip" checked />Система IP-камер</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="calc-branch" data-branch="wifi" hidden>
+            <legend>Камера</legend>
+            <div class="segments">
+              <label><input type="radio" name="wifiType" value="outdoor" checked />Уличная</label>
+              <label><input type="radio" name="wifiType" value="indoor" />Внутренняя</label>
+            </div>
+          </fieldset>
+
+          <div class="calc-branch" data-branch="ip">
+            <div class="range-row">
+              <div>
+                <span>Количество камер</span>
+                <strong><span id="cameraCountLabel">4</span> шт.</strong>
+              </div>
+              <input aria-label="Количество камер" id="cameras" type="range" min="1" max="32" value="4" />
+            </div>
+
+            <fieldset>
+              <legend>Жесткий диск и архив</legend>
+              <div class="hdd-grid" id="hddOptions">
+                <label><input type="radio" name="hdd" value="500gb" />500 ГБ <span data-hdd-days="500gb"></span></label>
+                <label><input type="radio" name="hdd" value="1tb" checked />1 ТБ <span data-hdd-days="1tb"></span></label>
+                <label><input type="radio" name="hdd" value="2tb" />2 ТБ <span data-hdd-days="2tb"></span></label>
+                <label><input type="radio" name="hdd" value="4tb" />4 ТБ <span data-hdd-days="4tb"></span></label>
+                <label><input type="radio" name="hdd" value="6tb" />6 ТБ <span data-hdd-days="6tb"></span></label>
+                <label><input type="radio" name="hdd" value="8tb" />8 ТБ <span data-hdd-days="8tb"></span></label>
+              </div>
+            </fieldset>
+
+            <div class="toggle-grid">
+              <label><input type="checkbox" id="monitorOption" />Монитор <span>42 000 ₸</span></label>
+              <label><input type="checkbox" id="boxOption" />Металлический ящик 6U <span>35 500 ₸</span></label>
+            </div>
+          </div>
+
+          <div class="total-box">
+            <div class="estimate-list" id="estimateList" aria-live="polite"></div>
+            <div class="estimate-summary" aria-live="polite">
+              <span>Оборудование <strong id="equipmentSubtotal">0 ₸</strong></span>
+              <span id="installationSubtotalRow">Монтаж <strong id="installationSubtotal">0 ₸</strong></span>
+            </div>
+            <span>ИТОГО <strong id="calcTotal">0 ₸</strong></span>
+            <small id="calcTotalNote">Смета считается по выбранной конфигурации</small>
+          </div>
+
+          <a class="btn primary full" id="calcRequestLink" href="https://wa.me/77776083077" target="_blank" rel="noopener">Получить смету в WhatsApp</a>
+          <p class="calc-note">Это ориентировочный расчёт. Наличие, состав комплекта и итоговую стоимость подтверждаем перед заказом.</p>
+        </form>
+        <p class="archive-note">Глубина архива зависит от разрешения, частоты кадров, сжатия и режима записи. Объём диска подбираем под требуемый срок хранения.</p>
+      </section>
 
       <section class="section business-objects" aria-labelledby="objects-title"><div class="section-head"><span class="section-kicker">Под задачу объекта</span><h2 id="objects-title">Камеры там, где нужен контроль</h2><p>Начинаем с зон обзора и требований к архиву. Количество камер определяем по плану помещения.</p></div><div class="business-object-grid"><article><h3><a href="/videonablyudenie-dlya-magazina-astana/">Магазины</a></h3><p>Вход, касса, торговый зал и зона приёмки товара.</p><button type="button" class="object-request" data-open-modal data-object="Магазины">Обсудить установку →</button></article><article><h3><a href="/videonablyudenie-dlya-apteki-astana/">Аптеки</a></h3><p>Кассовая зона, вход и помещения хранения. Доступ к записям — для ответственных сотрудников.</p><button type="button" class="object-request" data-open-modal data-object="Аптеки">Обсудить установку →</button></article><article><h3><a href="/videonablyudenie-dlya-lombarda-astana/">Ломбарды</a></h3><p>Вход, приёмная зона и рабочие места. Детализацию изображения и архив согласуем отдельно.</p><button type="button" class="object-request" data-open-modal data-object="Ломбарды">Обсудить установку →</button></article><article><h3>Офисы и склады</h3><p>Входные группы, коридоры, погрузка и движение товара.</p><button type="button" class="object-request" data-open-modal data-object="Офисы и склады">Обсудить установку →</button></article><article><h3>Кафе и рестораны</h3><p>Зал, касса, служебный вход и зона поставок.</p><button type="button" class="object-request" data-open-modal data-object="Кафе и рестораны">Обсудить установку →</button></article><article><h3>СТО и мастерские</h3><p>Въезд, ремонтные посты и места хранения инструмента.</p><button type="button" class="object-request" data-open-modal data-object="СТО и мастерские">Обсудить установку →</button></article></div></section>
 
@@ -387,63 +482,6 @@
         </div>
       </section>
 
-      <section class="section estimate-section" aria-label="Расчёт стоимости"><form class="calculator" id="prices" aria-label="Калькулятор стоимости">
-            <div class="calc-head">
-              <h2>Рассчитайте оборудование и монтаж</h2><p>Предварительный расчёт. Итоговая смета — после уточнения объекта, кабельных трасс и условий монтажа.</p>
-            </div>
-
-            <fieldset>
-              <legend>Тип системы</legend>
-              <div class="segments">
-                <label><input type="radio" name="systemType" value="wifi" />Wi-Fi камера</label>
-                <label><input type="radio" name="systemType" value="ip" checked />Система IP-камер</label>
-              </div>
-            </fieldset>
-
-            <fieldset class="calc-branch" data-branch="wifi" hidden>
-              <legend>Камера</legend>
-              <div class="segments">
-                <label><input type="radio" name="wifiType" value="outdoor" checked />Уличная</label>
-                <label><input type="radio" name="wifiType" value="indoor" />Внутренняя</label>
-              </div>
-            </fieldset>
-
-            <div class="calc-branch" data-branch="ip">
-              <div class="range-row">
-                <div>
-                  <span>Количество камер</span>
-                  <strong><span id="cameraCountLabel">4</span> шт.</strong>
-                </div>
-                <input aria-label="Количество камер" id="cameras" type="range" min="1" max="32" value="4" />
-              </div>
-
-              <fieldset>
-                <legend>Жесткий диск и архив</legend>
-                <div class="hdd-grid" id="hddOptions">
-                  <label><input type="radio" name="hdd" value="500gb" />500 ГБ <span data-hdd-days="500gb"></span></label>
-                  <label><input type="radio" name="hdd" value="1tb" checked />1 ТБ <span data-hdd-days="1tb"></span></label>
-                  <label><input type="radio" name="hdd" value="2tb" />2 ТБ <span data-hdd-days="2tb"></span></label>
-                  <label><input type="radio" name="hdd" value="4tb" />4 ТБ <span data-hdd-days="4tb"></span></label>
-                  <label><input type="radio" name="hdd" value="6tb" />6 ТБ <span data-hdd-days="6tb"></span></label>
-                  <label><input type="radio" name="hdd" value="8tb" />8 ТБ <span data-hdd-days="8tb"></span></label>
-                </div>
-              </fieldset>
-
-              <div class="toggle-grid">
-                <label><input type="checkbox" id="monitorOption" />Монитор <span>42 000 ₸</span></label>
-                <label><input type="checkbox" id="boxOption" />Металлический ящик 6U <span>35 500 ₸</span></label>
-              </div>
-            </div>
-
-            <div class="total-box">
-              <div class="estimate-list" id="estimateList" aria-live="polite"></div>
-              <span>ИТОГО <strong id="calcTotal">0 ₸</strong></span>
-              <small>Смета считается автоматически по выбранной конфигурации</small>
-            </div>
-
-            <a class="btn primary full" id="calcRequestLink" href="https://wa.me/77776083077" target="_blank" rel="noopener">Обсудить смету в WhatsApp</a>
-            <p class="calc-note">Точная стоимость после выезда специалиста</p>
-          </form><p class="archive-note">Глубина архива зависит от разрешения, частоты кадров, сжатия и режима записи. Объём диска подбираем под требуемый срок хранения.</p></section>
 <section class="section catalog-section" id="catalog">
         <div class="section-head split">
           <div>

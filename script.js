@@ -41,6 +41,11 @@ const calcTotal = document.querySelector("#calcTotal");
 const estimateList = document.querySelector("#estimateList");
 const calcRequestLink = document.querySelector("#calcRequestLink");
 const calculator = document.querySelector(".calculator");
+const calculatorObject = document.querySelector("#calculatorObject");
+const equipmentSubtotal = document.querySelector("#equipmentSubtotal");
+const installationSubtotal = document.querySelector("#installationSubtotal");
+const installationSubtotalRow = document.querySelector("#installationSubtotalRow");
+const calcTotalNote = document.querySelector("#calcTotalNote");
 const modal = document.querySelector("#leadModal");
 const modalSummary = document.querySelector("#modalSummary");
 const leadForm = document.querySelector("#leadForm");
@@ -61,6 +66,7 @@ const boxOption = document.querySelector("#boxOption");
 
 let lastTotal = 0;
 let lastEstimate = [];
+let lastRequestType = "turnkey";
 let activeShopGroup = "all";
 let cart = loadCart();
 const requestPhone = "+7 777 608 3077";
@@ -72,6 +78,41 @@ function money(value) {
 
 function selectedValue(name) {
   return document.querySelector(`input[name="${name}"]:checked`)?.value;
+}
+
+function requestTypeLabel(requestType = lastRequestType) {
+  return requestType === "equipment" ? "Купить оборудование" : "Оборудование + монтаж";
+}
+
+function getAttribution() {
+  const params = new URLSearchParams(window.location.search || "");
+  const fields = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"];
+  const current = Object.fromEntries(fields.map((field) => [field, params.get(field)]).filter(([, value]) => value));
+
+  try {
+    if (Object.keys(current).length) {
+      window.sessionStorage?.setItem("videoAstanaAttribution", JSON.stringify(current));
+      return current;
+    }
+
+    return JSON.parse(window.sessionStorage?.getItem("videoAstanaAttribution") || "{}");
+  } catch {
+    return current;
+  }
+}
+
+function attributionLines() {
+  const attribution = getAttribution();
+  if (!Object.keys(attribution).length) return [];
+
+  const source = attribution.utm_source === "google" ? "Google Ads" : attribution.utm_source;
+  return [
+    "",
+    `Источник: ${source || "не указан"}`,
+    attribution.utm_campaign ? `Кампания: ${attribution.utm_campaign}` : null,
+    attribution.utm_content ? `Группа/объявление: ${attribution.utm_content}` : null,
+    attribution.utm_term ? `Ключевое слово: ${attribution.utm_term}` : null,
+  ].filter(Boolean);
 }
 
 function getRecorder(cameraCount) {
@@ -107,28 +148,29 @@ function renderHddDays(cameraCount) {
 function buildWifiEstimate() {
   const camera = wifiCameras[selectedValue("wifiType") || "outdoor"];
   return [
-    { title: camera.title, price: camera.price },
-    { title: "Монтаж Wi-Fi камеры", price: 13000 },
+    { title: camera.title, price: camera.price, category: "equipment" },
+    { title: "Монтаж Wi-Fi камеры", price: 13000, category: "installation" },
   ];
 }
 
 function buildIpEstimate(cameraCount) {
   const hdd = hddOptions[selectedValue("hdd") || "1tb"];
   const items = [
-    { title: `IP камера 4МП с микрофоном × ${cameraCount}`, price: ipPrices.camera * cameraCount },
-    getRecorder(cameraCount),
-    getPoeSwitch(cameraCount),
-    getCable(cameraCount),
-    { title: "Расходный материал", price: ipPrices.consumables },
+    { title: `IP камера 4МП с микрофоном × ${cameraCount}`, price: ipPrices.camera * cameraCount, category: "equipment" },
+    { ...getRecorder(cameraCount), category: "equipment" },
+    { ...getPoeSwitch(cameraCount), category: "equipment" },
+    { ...getCable(cameraCount), category: "equipment" },
+    { title: "Расходный материал", price: ipPrices.consumables, category: "equipment" },
     {
       title: hdd.title,
       price: hdd.price,
+      category: "equipment",
     },
-    { title: `Монтаж × ${cameraCount}`, price: ipPrices.installPerCamera * cameraCount },
+    { title: `Монтаж × ${cameraCount}`, price: ipPrices.installPerCamera * cameraCount, category: "installation" },
   ];
 
-  if (monitorOption.checked) items.push({ title: "Монитор", price: ipPrices.monitor });
-  if (boxOption.checked) items.push({ title: "Металлический ящик 6U", price: ipPrices.box6u });
+  if (monitorOption.checked) items.push({ title: "Монитор", price: ipPrices.monitor, category: "equipment" });
+  if (boxOption.checked) items.push({ title: "Металлический ящик 6U", price: ipPrices.box6u, category: "equipment" });
 
   return items;
 }
@@ -150,20 +192,31 @@ function updateRequestLink() {
   if (!calcRequestLink) return;
 
   const bodyLines = [
-    "Здравствуйте. Хочу получить смету на видеонаблюдение.",
+    `Здравствуйте. Хочу: ${requestTypeLabel().toLowerCase()}.`,
     "",
+    `Заявка: ${requestTypeLabel()}`,
+    `Объект: ${calculatorObject?.value || "Не указан"}`,
     ...lastEstimate.map((item) => `${item.title}: ${money(item.price)}`),
     "",
-    `Итого: ${money(lastTotal)}`,
+    `Предварительная сумма: ${money(lastTotal)}`,
     "",
     "Город: Астана",
+    ...attributionLines(),
     `Телефон: ${requestPhone}`,
     `WhatsApp: ${whatsappUrl}`,
   ];
 
   calcRequestLink.href = `${whatsappUrl}?text=${encodeURIComponent(bodyLines.join("\n"))}`;
   calcRequestLink.onclick = () => {
-    window.trackWhatsAppClick?.("calculator_request");
+    window.trackWhatsAppClick?.(`calculator_${lastRequestType}`);
+    window.gtag?.("event", "videoastana_quote_open", {
+      event_category: "contact_intent",
+      request_type: lastRequestType,
+      object_type: calculatorObject?.value || "not_selected",
+      camera_count: selectedValue("systemType") === "wifi" ? 1 : Number(cameras.value || 1),
+      transport_type: "beacon",
+      business_unit: "video_astana",
+    });
   };
 }
 
@@ -177,22 +230,41 @@ function syncCalculatorBranches() {
 function calculate() {
   const systemType = selectedValue("systemType") || "ip";
   const cameraCount = Math.max(1, Math.min(32, Number(cameras.value || 1)));
+  lastRequestType = selectedValue("requestType") || "turnkey";
   cameras.value = cameraCount;
   cameraCountLabel.textContent = cameraCount;
   renderHddDays(cameraCount);
   syncCalculatorBranches();
 
-  lastEstimate = systemType === "wifi" ? buildWifiEstimate() : buildIpEstimate(cameraCount);
+  const fullEstimate = systemType === "wifi" ? buildWifiEstimate() : buildIpEstimate(cameraCount);
+  lastEstimate = lastRequestType === "equipment"
+    ? fullEstimate.filter((item) => item.category !== "installation")
+    : fullEstimate;
+  const equipmentTotal = lastEstimate
+    .filter((item) => item.category !== "installation")
+    .reduce((sum, item) => sum + item.price, 0);
+  const installationTotal = lastEstimate
+    .filter((item) => item.category === "installation")
+    .reduce((sum, item) => sum + item.price, 0);
   lastTotal = lastEstimate.reduce((sum, item) => sum + item.price, 0);
 
   renderEstimate(lastEstimate);
+  equipmentSubtotal.textContent = money(equipmentTotal);
+  installationSubtotal.textContent = money(installationTotal);
+  installationSubtotalRow.hidden = lastRequestType === "equipment";
   calcTotal.textContent = money(lastTotal);
+  calcTotalNote.textContent = lastRequestType === "equipment"
+    ? "Предварительная стоимость комплекта без монтажных работ"
+    : "Предварительная стоимость оборудования и монтажа";
+  calcRequestLink.textContent = lastRequestType === "equipment"
+    ? "Получить подбор оборудования в WhatsApp"
+    : "Получить смету в WhatsApp";
   updateRequestLink();
 }
 
 function openModal() {
   calculate();
-  modalSummary.textContent = `Ориентир по калькулятору: ${money(lastTotal)}. Уточним объект и согласуем состав работ. Подробный расчёт добавится в сообщение WhatsApp.`;
+  modalSummary.textContent = `${requestTypeLabel()}. Ориентир по калькулятору: ${money(lastTotal)}. Уточним объект и согласуем состав. Подробный расчёт добавится в сообщение WhatsApp.`;
 
   if (typeof modal.showModal === "function" && !modal.open) {
     modal.showModal();
@@ -310,6 +382,7 @@ function submitLeadForm(event) {
     `Имя: ${leadName.value || "-"}`,
     `Телефон: ${leadPhone.value || "-"}`,
     `Объект: ${document.querySelector("#leadObject").value}`,
+    `Запрос: ${requestTypeLabel()}`,
     `Город: Астана`,
     `Комментарий: ${leadComment.value || "-"}`,
     "",
@@ -319,6 +392,7 @@ function submitLeadForm(event) {
     "",
     `Итого: ${money(lastTotal)}`,
     "",
+    ...attributionLines(),
     `Телефон: ${requestPhone}`,
     `WhatsApp: ${whatsappUrl}`,
   ];
