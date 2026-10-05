@@ -62,6 +62,19 @@ test('equipment landing page is indexable, tracked and included in sitemap',()=>
  for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))JSON.parse(m[1]);
  assert.match(fs.readFileSync('sitemap.xml','utf8'),/https:\/\/video-astana\.kz\/oborudovanie-videonablyudeniya-astana\//);
 });
+test('VOLS service has a dedicated indexable and tracked lead path',()=>{
+ const homepage=fs.readFileSync('index.html','utf8');
+ const html=fs.readFileSync('montazh-vols-svarka-optiki-astana/index.html','utf8');
+ const sitemap=fs.readFileSync('sitemap.xml','utf8');
+ assert.match(homepage,/id="vols"/);assert.match(homepage,/Протяжка и сварка оптики/);
+ assert.match(html,/<link rel="canonical" href="https:\/\/video-astana\.kz\/montazh-vols-svarka-optiki-astana\/"/);
+ assert.match(html,/<h1>Монтаж ВОЛС и сварка оптики в Астане<\/h1>/);
+ assert.match(html,/videoastana_vols_request_open/);assert.match(html,/utm_campaign/);
+ assert.match(html,/AW-18455982142\/9QebCNLnxYkdEL7gv-BE/);
+ assert.doesNotMatch(html,/\bvalue\s*:/);assert.doesNotMatch(html,/\bcurrency\s*:/);
+ for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))JSON.parse(m[1]);
+ assert.match(sitemap,/https:\/\/video-astana\.kz\/montazh-vols-svarka-optiki-astana\//);
+});
 test('contact tracking records intent without sales values or old Ads destinations',()=>{
  const html=fs.readFileSync('index.html','utf8');const script=[...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].find(m=>m[1].includes('function trackPhoneClick'))[1];
  const context={window:{},document:{addEventListener(){}},Date};context.window.dataLayer=[];context.dataLayer=context.window.dataLayer;vm.createContext(context);vm.runInContext(script,context);
