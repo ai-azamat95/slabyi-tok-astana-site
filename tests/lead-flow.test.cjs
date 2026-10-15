@@ -37,7 +37,7 @@ test('equipment-only request removes installation and keeps source attribution',
 test('lead handoff includes object, city, phone and estimate without claiming delivery',()=>{
  const a=app();a.node('#leadName').value='Тест';a.node('#leadPhone').value='+77000000000';a.node('#leadObject').value='Аптека';a.node('#leadComment').value='Нужен монтаж';
  a.run('submitLeadForm({preventDefault(){}})');const url=new URL(a.context.window.location.href);const text=url.searchParams.get('text');
- assert.equal(url.pathname,'/77776083077');assert.match(text,/Объект: Аптека/);assert.match(text,/Город: Астана/);assert.match(text,/Нужен монтаж/);assert.match(text,/204\s000/);
+ assert.equal(url.pathname,'/77074846789');assert.match(text,/Объект: Аптека/);assert.match(text,/Город: Астана/);assert.match(text,/Нужен монтаж/);assert.match(text,/204\s000/);
 });
 test('catalog cart quantity and removal remain functional',()=>{
  const a=app();a.run('addToCart("1")');assert.equal(a.run('cartSummary().total'),15900);
@@ -119,7 +119,7 @@ test('SEO service pages have unique canonical metadata, valid JSON-LD and sitema
   assert.ok(title);assert.equal(titles.has(title),false);titles.add(title);
   assert.match(html,new RegExp(`<link rel="canonical" href="https://video-astana\\.kz/${slug}/"`));
   assert.match(html,/<html lang="ru-KZ">/);
-  assert.match(html,/\+7 777 608 3077/);
+  assert.match(html,/\+7 707 484 6789/);
   assert.doesNotMatch(html,/до 3 лет|за 1-2 дня|гарантируем|круглосуточно/);
   for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))JSON.parse(m[1]);
   assert.match(sitemap,new RegExp(`https://video-astana\\.kz/${slug}/`));
@@ -131,4 +131,9 @@ test('phone pattern accepts common formats and rejects text',()=>{
  const regex=new RegExp(`^(?:${pattern})$`,'v');
  for(const phone of ['+7 700 000 00 00','8 (700) 000-00-00','+77000000000'])assert.ok(regex.test(phone));
  assert.equal(regex.test('not a phone'),false);
+});
+
+test('all public contact paths use the current Video Astana number',()=>{
+ const files=['index.html','script.js','oborudovanie-videonablyudeniya-astana/index.html','montazh-vols-svarka-optiki-astana/index.html','videonablyudenie-dlya-magazina-astana/index.html','videonablyudenie-dlya-apteki-astana/index.html','videonablyudenie-dlya-lombarda-astana/index.html'];
+ for(const file of files){const contents=fs.readFileSync(file,'utf8');assert.doesNotMatch(contents,/77776083077|\+7 777 608 3077/);assert.match(contents,/77074846789|\+7 707 484 6789/);}
 });
